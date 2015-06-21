@@ -16,13 +16,19 @@ html(lang="en", ng-app="clippedIn")
         ul.nav.navbar-nav
           li: a(href='') Home
           li: a(href='') Get Outside
-          li: a(href='/#/login') Login
-          li: a(href='') Logout
+          li(ng-hide='auth'): a(href='/#/login') Login
+          li(ng-show='auth'): a(href='/#/logout') Logout
     .app(ng-view)
 
   script(src="lib/build.js")
+
   script(src="assets/main.module.js")
   script(src="assets/main.constants.js")
-  script(src="assets/auth.controller.js")
-  script(src="assets/auth.config.js")
+
+  script(src="assets/authorize/auth.controller.js")
+  script(src="assets/authorize/auth.config.js")
+
+  script(src="assets/profile/profile.factory.js")
+  script(src="assets/profile/profile.controller.js")
+  script(src="assets/profile/profile.config.js")
 
