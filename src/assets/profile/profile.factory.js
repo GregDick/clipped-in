@@ -6,6 +6,12 @@ angular
         $http
           .put(`${FB_URL}/profile/${userID}.json`, personObject)
           .success(cb)
+      },
+
+      getProfile(userID, cb){
+        $http
+          .get(`${FB_URL}/profile/${userID}.json`)
+          .success(cb)
       }
     }
   })
