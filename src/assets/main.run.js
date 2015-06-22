@@ -9,4 +9,4 @@ angular
         $location.path('/login')
       }
     });
-  })
+  });

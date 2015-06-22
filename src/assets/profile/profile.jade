@@ -1,3 +1,13 @@
-.jumbotron
-  h1 {{profile.profileObj.name}}
-  h2 something else
+.row
+  .col-md-6.col-md-offset-3
+    .profileBox
+      img(ng-src='{{profile.profileObj.photo}}')
+      .profileText
+        h1 {{profile.profileObj.name}}
+        p.lead {{profile.profileObj.age}} from {{profile.profileObj.location}}
+        p.lead Climbs {{profile.profileObj.grade}}!
+        p.lead {{profile.profileObj.name}} {{profile.belay}}
+      .agree
+        h2 Recommend {{profile.profileObj.name}}'s belay skills!
+        button.btn(ng-show='profile.topRope') + Top-Rope
+        button.btn(ng-show='profile.lead') + Lead

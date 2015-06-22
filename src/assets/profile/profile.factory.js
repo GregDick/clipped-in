@@ -12,6 +12,14 @@ angular
         $http
           .get(`${FB_URL}/profile/${userID}.json`)
           .success(cb)
+      },
+
+      getEveryone(cb){
+        $http
+          .get(`${FB_URL}/profile.json`)
+          .success(cb)
       }
+
+
     }
-  })
+  });

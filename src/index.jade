@@ -1,23 +1,22 @@
 doctype html
-html(lang="en", ng-app="clippedIn")
+html(lang="en")
   head
     meta(charset="utf-8")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=device-width, initial-scale=1")
     title Clipped In
     link(rel="stylesheet", href="/lib/build.css")
-    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css")
     link(rel="stylesheet", href="/assets/main.css")
-  body
+  body(ng-app="clippedIn")
     .container
       .jumbotron
-        h1 Clipped In
-      nav.navbar
-        ul.nav.navbar-nav
-          li: a(href='') Home
-          li: a(href='') Get Outside
-          li(ng-hide='auth'): a(href='/#/login') Login
-          li(ng-show='auth'): a(href='/#/logout') Logout
+        h1:  a(href='/#/profile') Clipped In
+        nav.navbar
+          ul.nav.navbar-nav
+            li: a(href='/#/profile') Home
+            li: a(href='') Get Outside
+            li(ng-hide='auth'): a(href='/#/login') Login
+            li(ng-show='auth'): a(href='/#/logout') Logout
     .app(ng-view)
 
   script(src="lib/build.js")

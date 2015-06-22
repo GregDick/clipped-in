@@ -9,22 +9,28 @@
         form
           .form-group
             label.control-label Email*
-            input.form-control(type='email' placeholder='email@whatever.com' ng-model='auth.person.email')
+            input.form-control(type='email' placeholder='email@whatever.com' ng-model='auth.secret.email')
           .form-group
             label.control-label Password*
-            input.form-control(type='password' placeholder='Password' ng-model='auth.person.password')
+            input.form-control(type='password' placeholder='Password' ng-model='auth.secret.password')
           .form-group
-            label.control-label Name
+            label.control-label Name*
             input.form-control(placeholder='Chris Sharma' ng-model='auth.person.name')
           .form-group
             label.control-label Age
-            input.form-control(ng-model='auth.person.age')
+            input.form-control(placeholder=' ' ng-model='auth.person.age')
           .form-group
             label.control-label Where do you live?
             input.form-control(placeholder='City, State' ng-model='auth.person.location')
           .form-group
             label.control-label What grade do you usually climb?
-            input.form-control(placeholder='5.4+ on a good day' ng-model='auth.person.grade')
+            input.form-control(placeholder="If you don't climb yet, just leave this blank" ng-model='auth.person.grade')
+          .form-group
+            label.control-label Can you top-rope belay?
+            input.form-control(placeholder="Yes/No" ng-model='auth.person.topRope')
+          .form-group
+            label.control-label Can you lead belay?
+            input.form-control(placeholder="Yes/No" ng-model='auth.person.lead')
           .form-group
             label.control-label Upload your face!
             input.form-control(placeholder='http://i.imgur.com/catPictures.jpg' ng-model='auth.person.photo')

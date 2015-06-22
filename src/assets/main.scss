@@ -1,0 +1,17 @@
+@import 'authorize/login';
+@import 'profile/profile';
+
+.jumbotron{
+  padding: 0 60px 20px;
+  margin-top: -20px;
+}
+
+.jumbotron h1 a{
+  text-decoration: none;
+}
+
+.nav a:hover{
+  font-size: 1.25em;
+  transition: 0.25s;
+  transition-delay: 0.1s;
+}

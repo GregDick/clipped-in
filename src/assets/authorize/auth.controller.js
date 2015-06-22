@@ -30,14 +30,14 @@ angular
 
     main.register = function(){
       fb.createUser({
-        email: main.person.email,
-        password: main.person.password
+        email: main.secret.email,
+        password: main.secret.password
       }, function(err, userData){
         if(err){
           console.log(err);
         }else{
-          Profile.create(main.person, userData.uid, function(res){
-            main.login(res.email, res.password);
+          Profile.create(main.person, userData.uid, function(){
+            main.login(main.secret.email, main.secret.password);
           });
         }
       })
@@ -46,4 +46,4 @@ angular
 
 
 
-  })
+  });

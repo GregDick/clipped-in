@@ -10,6 +10,8 @@ angular
           checkLogin: function ($rootScope, $location) {
             if ($rootScope.auth) {
               $location.path('/profile')
+            }else{
+              $location.path('/login')
             }
           }
         }
@@ -17,6 +19,16 @@ angular
       .when('/logout', {
         template: '<h1>Logging out...</h1>',
         controller: 'LogoutCtrl',
-        controllerAs: 'auth'
+        controllerAs: 'auth',
+        resolve: {
+          checkLogin: function ($rootScope, $location) {
+            if ($rootScope.auth) {
+              $location.path('/profile')
+            }else{
+              $location.path('/login')
+            }
+          }
+        }
       })
-  })
+
+  });
