@@ -32,19 +32,24 @@ angular
 
     main.endorseTopRope = function(){
       Profile.addTopRope(main.id, authData.uid, function(){
-        console.log('working');
         checkTopRope();
       })
     }
     main.endorseLead = function(){
       Profile.addLead(main.id, authData.uid, function(){
-        console.log('workin');
         checkLead();
       })
     }
 
     function checkTopRope(){
       Profile.getTopRope(main.id, function(res){
+        //makes sure you can't endorse twice
+        for(var id in res){
+          if(res[id] === authData.uid){
+            main.disableTopRope = true;
+          }
+        }
+        //lists whoever endorsed
         main.topRopeArr = Object.keys(res);
         Profile.getProfile(res[main.topRopeArr[0]], function(profileObj){
           main.topRopeFirst = profileObj.name;
@@ -61,6 +66,13 @@ angular
 
     function checkLead(){
       Profile.getLead(main.id, function(res){
+        //makes sure you can't endorse twice
+        for(var id in res){
+          if(res[id] === authData.uid){
+            main.disableLead = true;
+          }
+        }
+        //lists whoever endorsed
         main.leadArr = Object.keys(res);
         Profile.getProfile(res[main.leadArr[0]], function(profileObj){
           main.leadFirst = profileObj.name;
