@@ -14,7 +14,7 @@ html(lang="en")
         nav.navbar
           ul.nav.navbar-nav
             li: a(href='/#/profile') Home
-            li: a(href='') Get Outside
+            li: a(href='/#/') Get Outdoors
             li(ng-hide='auth'): a(href='/#/login') Login
             li(ng-show='auth'): a(href='/#/logout') Logout
     .app(ng-view)
@@ -32,4 +32,7 @@ html(lang="en")
   script(src="assets/profile/profile.factory.js")
   script(src="assets/profile/profile.controller.js")
   script(src="assets/profile/profile.config.js")
+
+  script(src="assets/users/person.config.js")
+  script(src="assets/users/person.controller.js")
 

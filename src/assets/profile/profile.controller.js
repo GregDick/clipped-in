@@ -1,6 +1,6 @@
 angular
   .module('clippedIn')
-  .controller('ProfileCtrl', function(FB_URL, $rootScope, Profile, $location, $filter){
+  .controller('ProfileCtrl', function(FB_URL, $rootScope, Profile, $location, $filter, $routeParams){
     var main = this;
     main.belay = '';
 

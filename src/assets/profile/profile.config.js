@@ -7,8 +7,13 @@ angular
         controller: 'ProfileCtrl',
         controllerAs: 'profile'
       })
+      .when('/person/:id', {
+        templateUrl: 'assets/profile/profile.html',
+        controller: 'ProfileCtrl',
+        controllerAs: 'profile'
+      })
       .when('/', {
-        templateUrl: 'assets/profile/users.html',
+        templateUrl: 'assets/users/users.html',
         controller: 'ProfileCtrl',
         controllerAs: 'profile'
       })
