@@ -1,8 +1,8 @@
 .users.row
   .col-md-10.col-md-offset-1
-    h1 GET OUTDOORS
+    h1 THE LOCALS
     h2 These climbers live nearby
     .single(ng-repeat='(id, profile) in profile.everyoneObj')
-      a(href='/users/person/{{id}}')
+      a(href='/#/person/{{id}}')
         img(ng-src='{{profile.photo}}')
       p{{profile.name}}

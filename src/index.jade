@@ -14,9 +14,10 @@ html(lang="en")
         nav.navbar
           ul.nav.navbar-nav
             li: a(href='/#/profile') Home
-            li: a(href='/#/') Get Outdoors
             li(ng-hide='auth'): a(href='/#/login') Login
             li(ng-show='auth'): a(href='/#/logout') Logout
+            li: a(href='/#/') Meet The Locals
+            li: a(href='/#/') Get Outdoors
     .app(ng-view)
 
   script(src="lib/build.js")
