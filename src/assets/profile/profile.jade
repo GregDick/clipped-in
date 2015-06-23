@@ -7,7 +7,12 @@
         p.lead {{profile.profileObj.age}} from {{profile.profileObj.location}}
         p.lead(ng-show='profile.profileObj.grade') Climbs {{profile.profileObj.grade}}!
         p.lead {{profile.profileObj.name}} {{profile.belay}}
-      .agree
-        h2(ng-show='profile.topRope && profile.lead') Recommend {{profile.profileObj.name}}'s belay skills!
-        button.btn(ng-show='profile.topRope') + Top-Rope
-        button.btn(ng-show='profile.lead') + Lead
+      .whoAgrees
+        h2(ng-show='profile.topRopePeople'){{profile.topRopePeople}} {{profile.profileObj.name}} is a great top-rope belayer!
+        h2(ng-show='profile.leadPeople'){{profile.leadPeople}} {{profile.profileObj.name}} is a great lead belayer!
+      .agree(ng-hide='auth.uid === profile.id')
+        h2(ng-show='profile.topRope || profile.lead') Recommend {{profile.profileObj.name}}'s belay skills!
+        button.btn(ng-show='profile.topRope' ng-click='profile.endorseTopRope()') + Top-Rope
+        button.btn(ng-show='profile.lead' ng-click='profile.endorseLead()') + Lead
+
+

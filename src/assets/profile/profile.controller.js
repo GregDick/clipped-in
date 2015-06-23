@@ -1,12 +1,16 @@
 angular
   .module('clippedIn')
-  .controller('ProfileCtrl', function($rootScope, Profile, $location, $filter){
+  .controller('ProfileCtrl', function($rootScope, Profile, $location, $filter, FB_URL){
     var main = this;
     main.belay = '';
+    var fb = new Firebase(FB_URL);
 
     if(!$rootScope.auth){
       $location.path('/login');
     }
+
+    var authData = fb.getAuth();
+    main.id = authData.uid;
 
     Profile.getProfile($rootScope.auth.uid, function(profileObj){
       main.profileObj = profileObj;
@@ -29,7 +33,33 @@ angular
       main.everyoneObj = everyoneObj;
     })
 
+    Profile.getTopRope(main.id, function(res){
+      main.topRopeArr = Object.keys(res);
+      Profile.getProfile(res[main.topRopeArr[0]], function(profileObj){
+        main.topRopeFirst = profileObj.name;
+        if(main.topRopeArr.length > 2){
+          main.topRopePeople = main.topRopeFirst + ' and ' + (main.topRopeArr.length - 1) +' other people think ';
+        }else if(main.topRopeArr.length === 2){
+          main.topRopePeople = main.topRopeFirst + ' and one other person think ';
+        }else{
+          main.topRopePeople = main.topRopeFirst + ' thinks ';
+        }
+      })
+    })
 
-
+    Profile.getLead(main.id, function(res){
+      main.leadArr = Object.keys(res);
+      Profile.getProfile(res[main.leadArr[0]], function(profileObj){
+        main.leadFirst = profileObj.name;
+        if(main.leadArr.length > 2){
+          main.leadPeople = main.leadFirst + ' and ' + (main.leadArr.length - 1) +' other people think ';
+        }else if(main.leadArr.length === 2){
+          main.leadPeople = main.leadFirst + ' and one other person think ';
+        }
+        else{
+          main.leadPeople = main.leadFirst + ' thinks ';
+        }
+      })
+    })
 
   });
