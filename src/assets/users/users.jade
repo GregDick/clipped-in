@@ -1,9 +1,17 @@
-.users.row
+.users.container
   .col-md-10.col-md-offset-1
-    h1 THE LOCALS
-    h2 These climbers live nearby
-    .single(ng-repeat='(id, profile) in profile.everyoneObj')
-      a(href='/#/person/{{id}}')
-        img(ng-src='{{profile.photo}}')
-      p{{profile.name}}
-
+    .row
+      h1 THE LOCALS
+      h2 These climbers live near {{profile.city}}, {{profile.state}}
+      .single.row
+        .profile-item(ng-show="profile.state === value.state" ng-repeat="(id, value) in profile.everyoneArr")
+          a(href='/#/person/{{id}}')
+            img(ng-src='{{value.photo}}')
+          p{{value.name}} from {{value.location}}
+    .row
+      h3 But we have users all over the country...
+      .other.row
+        .profile-item(ng-show="profile.state !== value.state" ng-repeat="(id, value) in profile.everyoneArr")
+          a(href='/#/person/{{id}}')
+            img(ng-src='{{value.photo}}')
+          p{{value.name}} from {{value.location}}

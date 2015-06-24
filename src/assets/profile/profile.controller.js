@@ -23,6 +23,8 @@ angular
 
     Profile.getProfile($rootScope.auth.uid, function(profileObj){
       main.profileObj = profileObj;
+      main.city = _.capitalize(profileObj.location.split(', ')[0]);
+      main.state = _.capitalize(profileObj.location.split(', ')[1]);
       //set topRope and lead as booleans
       main.topRope = $filter('lowercase')(profileObj.topRope) === 'yes' ? true : false;
       main.lead = $filter('lowercase')(profileObj.lead) === 'yes' ? true : false;
@@ -39,7 +41,14 @@ angular
     });
 
     Profile.getEveryone(function(everyoneObj){
-      main.everyoneObj = everyoneObj;
+      main.everyoneArr = [];
+      for(var x in everyoneObj){
+        everyoneObj[x].city = _.capitalize(everyoneObj[x].location.split(', ')[0]);
+        everyoneObj[x].state = _.capitalize(everyoneObj[x].location.split(', ')[1]);
+        if(x !== main.id){
+          main.everyoneArr.push(everyoneObj[x]);
+        }
+      }
     })
 
     Profile.getTopRope(main.id, function(res){

@@ -1,2 +1,2 @@
 angular
-  .module('clippedIn', ['ngRoute', 'uiGmapgoogle-maps']);
+  .module('clippedIn', ['ngRoute']);

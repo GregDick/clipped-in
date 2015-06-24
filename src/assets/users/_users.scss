@@ -1,5 +1,11 @@
-.single{
-  float: left;
+.single, .other{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
   margin: 20px;
+}
+.profile-item{
+  align-self: auto;
   text-align: center;
 }
