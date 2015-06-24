@@ -2,8 +2,6 @@ angular
   .module('clippedIn')
   .controller('PersonCtrl', function(Profile, $routeParams, FB_URL, $filter, $scope){
     var main = this;
-    main.topRopeNames = [];
-    main.leadNames = [];
 
     //call popover toggle function
     main.toggleTop = function (){
@@ -52,6 +50,7 @@ angular
 
     function checkTopRope(){
       Profile.getTopRope(main.id, function(res){
+        main.topRopeNames = [];
         //makes sure you can't endorse twice and sets popover array
         for(var id in res){
           if(res[id] === authData.uid){
@@ -75,6 +74,7 @@ angular
 
     function checkLead(){
       Profile.getLead(main.id, function(res){
+        main.leadNames = [];
         //makes sure you can't endorse twice and sets popover array
         for(var id in res){
           if(res[id] === authData.uid){
