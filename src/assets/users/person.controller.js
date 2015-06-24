@@ -2,7 +2,16 @@ angular
   .module('clippedIn')
   .controller('PersonCtrl', function(Profile, $routeParams, FB_URL, $filter, $scope){
     var main = this;
+    main.topRopeNames = [];
+    main.leadNames = [];
 
+    //call popover toggle function
+    main.toggleTop = function (){
+      $('.topPop').popover('toggle');
+    }
+    main.toggleLead = function (){
+      $('.leadPop').popover('toggle');
+    }
     //gets user information
     var fb = new Firebase(FB_URL);
     var authData = fb.getAuth();
@@ -43,50 +52,47 @@ angular
 
     function checkTopRope(){
       Profile.getTopRope(main.id, function(res){
-        //makes sure you can't endorse twice
+        //makes sure you can't endorse twice and sets popover array
         for(var id in res){
           if(res[id] === authData.uid){
             main.disableTopRope = true;
           }
+          Profile.getProfile(res[id], function(profileObj){
+            main.topRopeNames.push(profileObj.name);
+            console.log(profileObj);
+            //lists first + number of endorsed
+            if(main.topRopeNames.length > 2){
+              main.topRopePeople = main.topRopeNames[0] + ' and ' + (main.topRopeNames.length - 1) +' other people think ';
+            }else if(main.topRopeNames.length === 2){
+              main.topRopePeople = main.topRopeNames[0] + ' and one other person think ';
+            }else{
+              main.topRopePeople = main.topRopeNames[0] + ' thinks ';
+            }
+          })
         }
-        //lists whoever endorsed
-        main.topRopeArr = Object.keys(res);
-        Profile.getProfile(res[main.topRopeArr[0]], function(profileObj){
-          main.topRopeFirst = profileObj.name;
-          if(main.topRopeArr.length > 2){
-            main.topRopePeople = main.topRopeFirst + ' and ' + (main.topRopeArr.length - 1) +' other people think ';
-          }else if(main.topRopeArr.length === 2){
-            main.topRopePeople = main.topRopeFirst + ' and one other person think ';
-          }else{
-            main.topRopePeople = main.topRopeFirst + ' thinks ';
-          }
-        })
       })
     };
 
     function checkLead(){
       Profile.getLead(main.id, function(res){
-        //makes sure you can't endorse twice
+        //makes sure you can't endorse twice and sets popover array
         for(var id in res){
           if(res[id] === authData.uid){
             main.disableLead = true;
           }
+          Profile.getProfile(res[id], function(profileObj){
+            main.leadNames.push(profileObj.name);
+            //lists whoever endorsed
+            if(main.leadNames.length > 2){
+              main.leadPeople = main.leadNames[0] + ' and ' + (main.leadNames.length - 1) +' other people think ';
+            }else if(main.leadNames.length === 2){
+              main.leadPeople = main.leadNames[0] + ' and one other person think ';
+            }
+            else{
+              main.leadPeople = main.leadNames[0] + ' thinks ';
+            }
+          })
         }
-        //lists whoever endorsed
-        main.leadArr = Object.keys(res);
-        Profile.getProfile(res[main.leadArr[0]], function(profileObj){
-          main.leadFirst = profileObj.name;
-          if(main.leadArr.length > 2){
-            main.leadPeople = main.leadFirst + ' and ' + (main.leadArr.length - 1) +' other people think ';
-          }else if(main.leadArr.length === 2){
-            main.leadPeople = main.leadFirst + ' and one other person think ';
-          }
-          else{
-            main.leadPeople = main.leadFirst + ' thinks ';
-          }
-        })
       })
     };
-
-
   })
