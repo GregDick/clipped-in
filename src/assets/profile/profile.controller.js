@@ -41,14 +41,14 @@ angular
     });
 
     Profile.getEveryone(function(everyoneObj){
-      main.everyoneArr = [];
       for(var x in everyoneObj){
         everyoneObj[x].city = _.capitalize(everyoneObj[x].location.split(', ')[0]);
         everyoneObj[x].state = _.capitalize(everyoneObj[x].location.split(', ')[1]);
-        if(x !== main.id){
-          main.everyoneArr.push(everyoneObj[x]);
+        if(x === main.id){
+          delete everyoneObj[x];
         }
       }
+      main.everyoneObj = everyoneObj;
     })
 
     Profile.getTopRope(main.id, function(res){
