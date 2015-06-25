@@ -1,6 +1,7 @@
 angular
   .module('clippedIn')
   .controller('PersonCtrl', function(Profile, $routeParams, FB_URL, $filter, $scope){
+//=====================THIS CONTROLLER IS FOR VIEWING SOMEONE ELSE'S PROFILE===================
     var main = this;
 
     //call popover toggle function

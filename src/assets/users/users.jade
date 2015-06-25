@@ -2,16 +2,16 @@
   .col-md-10.col-md-offset-1
     .row
       h1 THE LOCALS
-      h2 These climbers live near {{profile.city}}, {{profile.state}}
+      h2 These climbers live near {{profile.geoObj.city}}, {{profile.geoObj.region}}
       .single.row
-        .profile-item(ng-show="profile.state === value.state" ng-repeat="(id, value) in profile.everyoneObj")
+        .profile-item(ng-show="profile.geoObj.region === value.state" ng-repeat="(id, value) in profile.everyoneObj")
           a(href='/#/person/{{id}}')
             img(ng-src='{{value.photo}}')
           p{{value.name}} from {{value.location}}
     .row
       h3 But we have users all over the country...
       .other.row
-        .profile-item(ng-show="profile.state !== value.state" ng-repeat="(id, value) in profile.everyoneObj")
+        .profile-item(ng-show="profile.geoObj.region !== value.state" ng-repeat="(id, value) in profile.everyoneObj")
           a(href='/#/person/{{id}}')
             img(ng-src='{{value.photo}}')
           p{{value.name}} from {{value.location}}

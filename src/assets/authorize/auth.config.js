@@ -30,5 +30,15 @@ angular
           }
         }
       })
+      .when('/reset', {
+        templateUrl: 'assets/authorize/reset.html',
+        controller: 'AuthCtrl',
+        controllerAs: 'auth'
+      })
+      .when('/temp', {
+        templateUrl: 'assets/authorize/temp.html',
+        controller: 'AuthCtrl',
+        controllerAs: 'auth'
+      })
 
   });

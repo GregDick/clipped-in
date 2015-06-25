@@ -3,6 +3,8 @@ angular
   .controller('AuthCtrl', function(FB_URL, $rootScope, $scope, $location, Profile){
     var main = this;
     var fb = new Firebase(FB_URL);
+    main.resetSuccess = false;
+    main.changeSuccess = false;
 
     main.login = function(email, password){
       fb.authWithPassword({
@@ -39,6 +41,35 @@ angular
           Profile.create(main.person, userData.uid, function(){
             main.login(main.secret.email, main.secret.password);
           });
+        }
+      })
+    }
+
+    main.resetPass = function () {
+      fb.resetPassword({
+        email: main.reset.email
+      }, function(err){
+        if(err){
+          alert('Error: '+ err);
+        }else{
+          main.resetSuccess = true;
+          $scope.$apply();
+        }
+      })
+    }
+
+    main.changePass = function(){
+      fb.changePassword({
+        email: main.temp.email,
+        oldPassword: main.temp.oldPass,
+        newPassword: main.temp.newPass
+      }, function(error){
+        if(error){
+          alert('Error: '+error);
+        }else{
+          main.changeSuccess = true;
+          $rootScope.auth.password.isTemporaryPassword = false;
+          $scope.$apply();
         }
       })
     }

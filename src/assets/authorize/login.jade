@@ -1,9 +1,10 @@
 .row
   .col-md-10.col-md-offset-1
-    form(ng-submit='auth.login(auth.email, auth.password)')
+    form.login-form(ng-submit='auth.login(auth.email, auth.password)')
       input.form-control(type='email' placeholder='email@domain.com' ng-model='auth.email')
       input.form-control(type='password' placeholder = 'Password' ng-model='auth.password')
-      button.btn.btn-lg.btn-info Login
-      button.btn.btn-lg.btn-warning(ng-click='auth.modalLoad()') Register
-      button.btn.btn-lg.btn-danger Forgot Password
+      .button-group
+        button.btn.btn-lg.btn-info Login
+        button.btn.btn-lg.btn-warning(ng-click='auth.modalLoad()') Register
+        button.btn.btn-lg.btn-danger: a(href='/#/reset') Forgot Password
   div(ng-include="'assets/authorize/modal.html'")

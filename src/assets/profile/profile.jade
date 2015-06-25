@@ -9,11 +9,11 @@
         p.lead {{profile.profileObj.name}} {{profile.belay}}
   .col-md-8.col-md-offset-2.agreeBox
     .whoAgrees
-      a.h2.topPop(ng-click='profile.toggleTop()' data-toggle='popover' data-trigger='manual' data-placement='bottom' data-content='{{profile.topRopeNames.join(", ")}}'){{profile.topRopePeople}}
-      span.h2(ng-show='profile.topRopePeople'){{profile.profileObj.name}} is a great top-rope belayer!
-      .row
-        a.h2.leadPop(ng-click='profile.toggleLead()' data-toggle='popover' data-trigger='manual' data-placement='bottom' data-content='{{profile.leadNames.join(", ")}}'){{profile.leadPeople}}
-        span.h2(ng-show='profile.leadPeople'){{profile.profileObj.name}} is a great lead belayer!
+      a.h3.topPop(ng-click='profile.toggleTop()' data-animation='true' data-toggle='popover' data-trigger='manual' data-placement='bottom' data-content='{{profile.topRopeNames.join(", ")}}'){{profile.topRopePeople}}
+      span.h3(ng-show='profile.topRopePeople'){{profile.profileObj.name}} is a great top-rope belayer!
+    .row
+      a.h3.leadPop(ng-click='profile.toggleLead()' data-animation='true' data-toggle='popover' data-trigger='manual' data-placement='bottom' data-content='{{profile.leadNames.join(", ")}}'){{profile.leadPeople}}
+      span.h3(ng-show='profile.leadPeople'){{profile.profileObj.name}} is a great lead belayer!
     .agree(ng-hide='auth.uid === profile.id')
       h2(ng-show='profile.topRope || profile.lead') Recommend {{profile.profileObj.name}}'s belay skills!
       button.btn(ng-show='profile.topRope' ng-click='profile.endorseTopRope()' ng-class='{disabled : profile.disableTopRope}') + Top-Rope

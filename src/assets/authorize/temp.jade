@@ -1,0 +1,16 @@
+.row
+  .col-md-6.col-md-offset-3
+    form.change-form
+      .form-group
+        label Email
+        input(type='email' ng-model='auth.temp.email' placeholder='Email')
+      .form-group
+        label Old Password
+        input(type='password' ng-model='auth.temp.oldPass' placeholder='Old Password')
+      .form-group
+        label New Password
+        input(type='password' ng-model='auth.temp.newPass' placeholder='New Password')
+      button.btn.btn-success.btn-lg(ng-click='auth.changePass()') Change Password
+    .change-success(ng-show='auth.changeSuccess')
+      h1 You've successfully changed your password!
+      button.btn.btn-block.btn-info(ng-click='auth.login(auth.temp.email, auth.temp.newPass)') Click to Login

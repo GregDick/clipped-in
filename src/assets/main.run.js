@@ -6,7 +6,7 @@ angular
       $rootScope.auth = fb.getAuth();
 
       if (nextRoute.$$route && nextRoute.$$route.private && !$rootScope.auth) {
-        $location.path('/login')
+        $location.path('/login');
       }
     });
   });

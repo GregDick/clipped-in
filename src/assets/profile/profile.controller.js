@@ -1,22 +1,27 @@
 angular
   .module('clippedIn')
-  .controller('ProfileCtrl', function($rootScope, Profile, $location, $filter, FB_URL){
+  .controller('ProfileCtrl', function($scope, $rootScope, Profile, $location, $filter, FB_URL, Outside){
+//==============THIS CONTROLLER IS FOR THE MEET THE LOCALS PAGE AND FOR VIEWING YOUR OWN PROFILE==========
+
     var main = this;
     main.belay = '';
     var fb = new Firebase(FB_URL);
 
-
-    //call popover toggle function
+    //on temp password redirect to temp
+    if($rootScope.auth.password.isTemporaryPassword){
+      $location.path('/temp');
+    }else if(!$rootScope.auth){
+      $location.path('/login');
+      $scope.$apply();
+    }else{}
+    // popover toggle function
     main.toggleTop = function (){
       $('.topPop').popover('toggle');
     }
     main.toggleLead = function (){
       $('.leadPop').popover('toggle');
     }
-    //on logout, send to login page
-    if(!$rootScope.auth){
-      $location.path('/login');
-    }
+
     //get id of who is logged in
     var authData = fb.getAuth();
     main.id = authData.uid;
@@ -92,6 +97,12 @@ angular
           }
         })
       }
+    })
+
+    //get geolocation to filter users
+    Outside.getGeo(function(data){
+      console.log(data);
+      main.geoObj = data;
     })
 
   });
