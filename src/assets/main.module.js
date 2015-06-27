@@ -1,2 +1,2 @@
 angular
-  .module('clippedIn', ['ngRoute']);
+  .module('clippedIn', ['ngRoute', 'firebase']);

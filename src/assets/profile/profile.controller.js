@@ -1,6 +1,7 @@
 angular
   .module('clippedIn')
-  .controller('ProfileCtrl', function($scope, $rootScope, Profile, $location, $filter, FB_URL, Outside){
+  .controller('ProfileCtrl', function($scope, $rootScope, Profile, $location,
+   $filter, FB_URL, Outside, $firebaseObject){
 //==============THIS CONTROLLER IS FOR THE MEET THE LOCALS PAGE AND FOR VIEWING YOUR OWN PROFILE==========
 
     var main = this;
@@ -14,6 +15,7 @@ angular
       $location.path('/login');
       $scope.$apply();
     }else{}
+
     // popover toggle function
     main.toggleTop = function (){
       $('.topPop').popover('toggle');
@@ -26,24 +28,34 @@ angular
     var authData = fb.getAuth();
     main.id = authData.uid;
 
-    Profile.getProfile($rootScope.auth.uid, function(profileObj){
-      main.profileObj = profileObj;
-      main.city = _.capitalize(profileObj.location.split(', ')[0]);
-      main.state = _.capitalize(profileObj.location.split(', ')[1]);
+    //make own profile editable with three-way data binding
+    //also gets profile data
+    var fbBind = new Firebase(`${FB_URL}/profile/${main.id}`)
+    main.syncObject = $firebaseObject(fbBind);
+    main.syncObject.$bindTo($scope, "myProfile").then(function(){
       //set topRope and lead as booleans
-      main.topRope = $filter('lowercase')(profileObj.topRope) === 'yes' ? true : false;
-      main.lead = $filter('lowercase')(profileObj.lead) === 'yes' ? true : false;
+      main.topRope = $filter('lowercase')(main.syncObject.topRope) === 'yes' ? true : false;
+      main.lead = $filter('lowercase')(main.syncObject.lead) === 'yes' ? true : false;
       //set belay string
-        if(main.topRope && main.lead){
-          main.belay = ' can top-rope AND lead belay';
-        }else if(main.topRope && !main.lead){
-          main.belay = " can top-rope belay but doesn't know how to lead belay yet...";
-        }else if(!main.topRope && main.lead){
-          main.belay = " can lead belay but doesn't know how to top-rope belay yet...";
-        }else{
-          main.belay = " doesn't know how to belay yet...";
-        }
-    });
+      if(main.topRope && main.lead){
+        main.belay = ' can top-rope AND lead belay';
+      }else if(main.topRope && !main.lead){
+        main.belay = " can top-rope belay but doesn't know how to lead belay yet...";
+      }else if(!main.topRope && main.lead){
+        main.belay = " can lead belay but doesn't know how to top-rope belay yet...";
+      }else{
+        main.belay = " doesn't know how to belay yet...";
+      }
+    })
+
+    //show edit modal
+    main.modalLoad = function(){
+      $('#edit-modal').modal('show');
+      $('#edit-modal').on('hidden.bs.modal', function (e) {
+        $location.path('/profile');
+        $scope.$apply();
+      });
+    }
 
     Profile.getEveryone(function(everyoneObj){
       for(var x in everyoneObj){

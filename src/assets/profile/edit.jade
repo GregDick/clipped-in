@@ -1,0 +1,32 @@
+.modal.fade#edit-modal
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close(data-dismiss="modal")
+          span &times;
+        h2 Edit Your Profile
+      .modal-body
+        form
+          .form-group
+            label.control-label Name
+            input.form-control(placeholder='Chris Sharma' ng-model='auth.person.name')
+          .form-group
+            label.control-label Age
+            input.form-control(placeholder=' ' ng-model='auth.person.age')
+          .form-group
+            label.control-label Where do you live?
+            input.form-control(placeholder='City, State' ng-model='auth.person.location')
+          .form-group
+            label.control-label What grade do you usually climb?
+            input.form-control(placeholder="If you don't climb yet, just leave this blank" ng-model='auth.person.grade')
+          .form-group
+            label.control-label Can you top-rope belay?
+            input.form-control(placeholder="Yes/No" ng-model='auth.person.topRope')
+          .form-group
+            label.control-label Can you lead belay?
+            input.form-control(placeholder="Yes/No" ng-model='auth.person.lead')
+          .form-group
+            label.control-label Upload your face!
+            input.form-control(placeholder='http://i.imgur.com/catPictures.jpg' ng-model='auth.person.photo')
+      .modal-footer
+        button.btn.btn-danger(data-dismiss="modal") Close

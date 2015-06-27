@@ -1,22 +1,20 @@
 .row
   .col-md-6.col-md-offset-3
     .profileBox
-      img(ng-src='{{myProfile.photo}}')
+      img(ng-src='{{profile.profileObj.photo}}')
       .profileText
-        h1 {{myProfile.name}}
-        p.lead {{myProfile.age}} from {{myProfile.location}}
-        p.lead(ng-show='myProfile.grade') Climbs {{myProfile.grade}}!
-        p.lead {{myProfile.name}} {{profile.belay}}
+        h1 {{profile.profileObj.name}}
+        p.lead {{profile.profileObj.age}} from {{profile.profileObj.location}}
+        p.lead(ng-show='profile.profileObj.grade') Climbs {{profile.profileObj.grade}}!
+        p.lead {{profile.profileObj.name}} {{profile.belay}}
   .col-md-8.col-md-offset-2.agreeBox
     .whoAgrees
       a.h3.topPop(ng-click='profile.toggleTop()' data-animation='true' data-toggle='popover' data-trigger='manual' data-placement='bottom' data-content='{{profile.topRopeNames.join(", ")}}'){{profile.topRopePeople}}
-      span.h3(ng-show='profile.topRopePeople'){{myProfile.name}} is a great top-rope belayer!
+      span.h3(ng-show='profile.topRopePeople'){{profile.profileObj.name}} is a great top-rope belayer!
     .row
       a.h3.leadPop(ng-click='profile.toggleLead()' data-animation='true' data-toggle='popover' data-trigger='manual' data-placement='bottom' data-content='{{profile.leadNames.join(", ")}}'){{profile.leadPeople}}
-      span.h3(ng-show='profile.leadPeople'){{myProfile.name}} is a great lead belayer!
+      span.h3(ng-show='profile.leadPeople'){{profile.profileObj.name}} is a great lead belayer!
     .agree(ng-hide='auth.uid === profile.id')
-      h2(ng-show='profile.topRope || profile.lead') Recommend {{myProfile.name}}'s belay skills!
+      h2(ng-show='profile.topRope || profile.lead') Recommend {{profile.profileObj.name}}'s belay skills!
       button.btn(ng-show='profile.topRope' ng-click='profile.endorseTopRope()' ng-class='{disabled : profile.disableTopRope}') + Top-Rope
       button.btn(ng-show='profile.lead' ng-click='profile.endorseLead()' ng-class='{disabled : profile.disableLead}') + Lead
-  div(ng-include="'assets/profile/edit.html'")
-

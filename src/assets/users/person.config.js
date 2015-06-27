@@ -3,7 +3,7 @@ angular
   .config(function($routeProvider){
     $routeProvider
       .when('/person/:id', {
-        templateUrl: 'assets/profile/profile.html',
+        templateUrl: 'assets/users/person.html',
         controller: 'PersonCtrl',
         controllerAs: 'profile',
         private: true
