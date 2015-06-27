@@ -64,7 +64,7 @@ angular
             if(main.topRopeNames.length > 2){
               main.topRopePeople = main.topRopeNames[0] + ' and ' + (main.topRopeNames.length - 1) +' other people think ';
             }else if(main.topRopeNames.length === 2){
-              main.topRopePeople = main.topRopeNames[0] + ' and one other person think ';
+              main.topRopePeople = main.topRopeNames[0] + ' and 1 other person think ';
             }else{
               main.topRopePeople = main.topRopeNames[0] + ' thinks ';
             }
@@ -87,7 +87,7 @@ angular
             if(main.leadNames.length > 2){
               main.leadPeople = main.leadNames[0] + ' and ' + (main.leadNames.length - 1) +' other people think ';
             }else if(main.leadNames.length === 2){
-              main.leadPeople = main.leadNames[0] + ' and one other person think ';
+              main.leadPeople = main.leadNames[0] + ' and 1 other person think ';
             }
             else{
               main.leadPeople = main.leadNames[0] + ' thinks ';

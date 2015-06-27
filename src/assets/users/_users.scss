@@ -1,3 +1,7 @@
+.hidden{
+  display: none;
+}
+
 .single, .other{
   display: flex;
   flex-direction: row;
@@ -8,4 +12,18 @@
 .profile-item{
   align-self: auto;
   text-align: center;
+  min-width: 200px;
 }
+
+.profile-item img{
+  margin: auto;
+}
+
+.profile-item span{
+  text-align: center;
+  position: absolute;
+  margin-left: -150px;
+  margin-top: 50px;
+  color: white;
+}
+

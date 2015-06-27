@@ -3,6 +3,10 @@
 @import 'users/users';
 @import 'outside/outside';
 
+body{
+  overflow-x: hidden;
+}
+
 .jumbotron{
   padding: 0 60px 20px;
   margin-top: -20px;

@@ -4,14 +4,15 @@
       h1 THE LOCALS
       h2 These climbers live near {{profile.geoObj.city}}, {{profile.geoObj.region}}
       .single.row
-        .profile-item(ng-show="profile.geoObj.region === value.state" ng-repeat="(id, value) in profile.everyoneObj")
+        .profile-item(ng-mouseover='profile.show()' ng-mouseleave='profile.hide()' ng-show="profile.geoObj.region === value.state" ng-repeat="(id, value) in profile.everyoneObj")
           a(href='/#/person/{{id}}')
             img(ng-src='{{value.photo}}')
-          p{{value.name}} from {{value.location}}
+            span.hidden.h4{{value.name}}
     .row
       h3 But we have users all over the country...
       .other.row
-        .profile-item(ng-show="profile.geoObj.region !== value.state" ng-repeat="(id, value) in profile.everyoneObj")
+        .profile-item(ng-mouseover='profile.show()' ng-mouseleave='profile.hide()' ng-show="profile.geoObj.region !== value.state" ng-repeat="(id, value) in profile.everyoneObj")
           a(href='/#/person/{{id}}')
             img(ng-src='{{value.photo}}')
-          p{{value.name}} from {{value.location}}
+            span.hidden.h4{{value.name}}
+
