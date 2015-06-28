@@ -48,7 +48,7 @@ angular
       }
     })
 
-    //show edit modal
+    //show edit-modal
     main.modalLoad = function(){
       $('#edit-modal').modal('show');
       $('#edit-modal').on('hidden.bs.modal', function (e) {

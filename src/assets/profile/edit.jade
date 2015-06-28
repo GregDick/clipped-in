@@ -1,5 +1,5 @@
 .modal.fade#edit-modal
-  .modal-dialog
+  .modal-dialog.modal-sm
     .modal-content
       .modal-header
         button.close(data-dismiss="modal")
@@ -9,24 +9,24 @@
         form
           .form-group
             label.control-label Name
-            input.form-control(placeholder='Chris Sharma' ng-model='auth.person.name')
+            input.form-control(placeholder='{{myProfile.name}}' ng-model='myProfile.name')
           .form-group
             label.control-label Age
-            input.form-control(placeholder=' ' ng-model='auth.person.age')
+            input.form-control(placeholder='{{myProfile.age}}' ng-model='myProfile.age')
           .form-group
             label.control-label Where do you live?
-            input.form-control(placeholder='City, State' ng-model='auth.person.location')
+            input.form-control(placeholder='{{myProfile.location}}' ng-model='myProfile.location')
           .form-group
             label.control-label What grade do you usually climb?
-            input.form-control(placeholder="If you don't climb yet, just leave this blank" ng-model='auth.person.grade')
+            input.form-control(placeholder="If you don't climb yet, just leave this blank" ng-model='myProfile.grade')
           .form-group
             label.control-label Can you top-rope belay?
-            input.form-control(placeholder="Yes/No" ng-model='auth.person.topRope')
+            input.form-control(placeholder="{{myProfile.topRope}}" ng-model='myProfile.topRope')
           .form-group
             label.control-label Can you lead belay?
-            input.form-control(placeholder="Yes/No" ng-model='auth.person.lead')
+            input.form-control(placeholder="{{myProfile.lead}}" ng-model='myProfile.lead')
           .form-group
             label.control-label Upload your face!
-            input.form-control(placeholder='http://i.imgur.com/catPictures.jpg' ng-model='auth.person.photo')
+            input.form-control(placeholder='http://i.imgur.com/catPictures.jpg' ng-model='myProfile.photo')
       .modal-footer
-        button.btn.btn-danger(data-dismiss="modal") Close
+        button.btn.btn-danger.btn-block(data-dismiss="modal") Close

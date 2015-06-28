@@ -1,5 +1,7 @@
 .row
-  .col-md-6.col-md-offset-3
+  .col-md-3.edit-column
+    button.btn.btn-lg.btn-danger(ng-click='profile.modalLoad()') Edit
+  .col-md-6
     .profileBox
       img(ng-src='{{myProfile.photo}}')
       .profileText
