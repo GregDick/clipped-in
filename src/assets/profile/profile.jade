@@ -1,7 +1,5 @@
 .row
-  .col-md-3.edit-column
-    button.btn.btn-lg.btn-danger(ng-click='profile.modalLoad()') Edit
-  .col-md-6
+  .col-md-6.col-md-offset-3
     .profileBox
       img(ng-src='{{myProfile.photo}}')
       .profileText
@@ -20,5 +18,30 @@
       h2(ng-show='profile.topRope || profile.lead') Recommend {{myProfile.name}}'s belay skills!
       button.btn(ng-show='profile.topRope' ng-click='profile.endorseTopRope()' ng-class='{disabled : profile.disableTopRope}') + Top-Rope
       button.btn(ng-show='profile.lead' ng-click='profile.endorseLead()' ng-class='{disabled : profile.disableLead}') + Lead
-  div(ng-include="'assets/profile/edit.html'")
+  .col-md-6.col-md-offset-3
+    button.edit-button.btn.btn-lg.btn-danger.btn-block(type='button' data-toggle='collapse' data-target="#edit") Edit
+    .collapse#edit
+      .well
+        form
+          .form-group
+            label.control-label Name
+            input.form-control(placeholder='{{myProfile.name}}' ng-model='myProfile.name')
+          .form-group
+            label.control-label Age
+            input.form-control(placeholder='{{myProfile.age}}' ng-model='myProfile.age')
+          .form-group
+            label.control-label Where do you live?
+            input.form-control(placeholder='{{myProfile.location}}' ng-model='myProfile.location')
+          .form-group
+            label.control-label What grade do you usually climb?
+            input.form-control(placeholder="If you don't climb yet, just leave this blank" ng-model='myProfile.grade')
+          .form-group
+            label.control-label Can you top-rope belay?
+            input.form-control(placeholder="{{myProfile.topRope}}" ng-model='myProfile.topRope')
+          .form-group
+            label.control-label Can you lead belay?
+            input.form-control(placeholder="{{myProfile.lead}}" ng-model='myProfile.lead')
+          .form-group
+            label.control-label Upload your face!
+            input.form-control(placeholder='http://i.imgur.com/catPictures.jpg' ng-model='myProfile.photo')
 
