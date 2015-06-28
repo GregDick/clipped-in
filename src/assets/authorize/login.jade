@@ -3,8 +3,11 @@
     form.login-form(ng-submit='auth.login(auth.email, auth.password)')
       input.form-control(type='email' placeholder='email@domain.com' ng-model='auth.email')
       input.form-control(type='password' placeholder = 'Password' ng-model='auth.password')
-      .button-group
-        button.btn.btn-lg.btn-info Login
-        button.btn.btn-lg.btn-warning(ng-click='auth.modalLoad()') Register
-        button.btn.btn-lg.btn-danger: a(href='/#/reset') Forgot Password
+      .buttons.btn-group.btn-group-justified(role='group')
+        .btn-group(role='group')
+          button.btn.btn-lg.btn-success Login
+        .btn-group(role='group')
+          button.btn.btn-lg.btn-info(ng-click='auth.modalLoad()') Register
+        .btn-group(role='group')
+          button.btn.btn-lg.btn-danger: a(href='/#/reset') Forgot Password
   div(ng-include="'assets/authorize/modal.html'")

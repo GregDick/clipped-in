@@ -2,6 +2,10 @@
   display: none;
 }
 
+.lower{
+  padding-top: 20px;
+}
+
 .single, .other{
   display: flex;
   flex-direction: row;
@@ -25,5 +29,9 @@
   margin-left: -150px;
   margin-top: 50px;
   color: white;
+}
+
+.backdrop{
+  opacity: 0.8;
 }
 

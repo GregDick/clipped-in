@@ -120,9 +120,19 @@ angular
     //show names on user hover
     main.show = function(){
       $('.profile-item span').removeClass('hidden');
+      $('img').addClass('backdrop');
     }
     main.hide = function(){
       $('.profile-item span').addClass('hidden');
+      $('img').removeClass('backdrop');
     }
+
+    // $('.profile-item')
+    //   .on('mouseover', function(){
+    //     $(this).closest('span').removeClass('hidden');
+    //   })
+    //   .on('mouseout', function(){
+    //     $(this).closest('span').addClass('hidden');
+    //   })
 
   });

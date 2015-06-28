@@ -16,6 +16,15 @@ body{
   text-decoration: none;
 }
 
+.head-logo, nav{
+  display: inline-block;
+  margin-bottom: 0;
+}
+
+.jumbotron nav{
+  margin: 0 10% -10px;
+}
+
 .nav a:hover{
   font-size: 1.25em;
   transition: 0.25s;
