@@ -117,22 +117,26 @@ angular
       main.geoObj = data;
     })
 
-    //show names on user hover
-    main.show = function(){
-      $('.profile-item span').removeClass('hidden');
-      $('img').addClass('backdrop');
+    // show names on user hover
+    main.show = function(event){
+      $('.profile-item').closest('span').removeClass('hidden');
+      $('img').closest('span').addClass('backdrop');
     }
-    main.hide = function(){
-      $('.profile-item span').addClass('hidden');
-      $('img').removeClass('backdrop');
+    main.hide = function(event){
+      $('.profile-item').closest('span').addClass('hidden');
+      $('img').closest('span').removeClass('backdrop');
     }
 
     // $('.profile-item')
     //   .on('mouseover', function(){
-    //     $(this).closest('span').removeClass('hidden');
+    //     $(event.target).closest('span').removeClass('hidden');
+    //     debugger;
     //   })
     //   .on('mouseout', function(){
-    //     $(this).closest('span').addClass('hidden');
+    //     $(event.target).closest('span').addClass('hidden');
     //   })
 
+
+    //reset overflow when coming from get outside page
+    $('body').css('overflow', 'auto');
   });

@@ -1,3 +1,17 @@
 .row
-  .col-md-8.col-md-offset-2
-    h1 hey
+  .outside
+    img(ng-src='{{out.pic}}')
+    .col-md-8.col-md-offset-2.outside-content
+      h1 Get Outside!
+      h3 Trip List
+      table.table
+        tr
+          th Picture
+          th Destination
+          th Date
+          th Who
+        tr(ng-repeat='')
+          td
+          td
+          td
+          td

@@ -1,0 +1,27 @@
+.outside{
+  position: relative;
+  height: 700px;
+}
+
+.outside-content{
+  position: relative;
+  z-index: 2;
+}
+
+.outside img {
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  top: -89px;
+  width: 100%;
+  height: auto;
+  opacity: 0.5;
+}
+
+.outside h1{
+  text-align: center;
+}
+
+.outside h3{
+  margin-left: 20px;
+}
