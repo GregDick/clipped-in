@@ -25,3 +25,24 @@
 .outside h3{
   margin-left: 20px;
 }
+
+.trip-button{
+  width: 60%;
+  margin: auto;
+}
+
+.trip-button button{
+  width:75%;
+  margin: auto;
+}
+
+.trip-button button:hover{
+    width: 100%;
+    font-size: 1.5em;
+    transition: 1s;
+}
+
+.plan-form{
+  margin-top: 25px;
+}
+

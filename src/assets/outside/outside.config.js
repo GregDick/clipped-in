@@ -6,5 +6,10 @@ angular
         templateUrl: 'assets/outside/outside.html',
         controller: 'OutsideCtrl',
         controllerAs: 'out'
-      });
+    })
+    .when('/plan', {
+        templateUrl: 'assets/outside/plan.html',
+        controller: 'OutsideCtrl',
+        controllerAs: 'out'
+    })
   });
