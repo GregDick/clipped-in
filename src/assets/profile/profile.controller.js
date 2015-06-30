@@ -136,7 +136,4 @@ angular
     //     $(event.target).closest('span').addClass('hidden');
     //   })
 
-
-    //reset overflow when coming from get outside page
-    $('body').css('overflow', 'auto');
   });

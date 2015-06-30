@@ -74,6 +74,4 @@ angular
       })
     }
 
-    //reset overflow when coming from get outside page
-    $('body').css('overflow', 'auto');
   });

@@ -1,21 +1,21 @@
 .row
   .outside
     img(ng-src='{{out.pic}}')
-    .col-md-8.col-md-offset-2.outside-content
-      h1 Get Outside!
-      h3 Open Trips
-      table.table
-        tr
-          th Picture
-          th Destination
-          th Date
-          th Who
-        tr(ng-repeat='')
-          td
-          td
-          td
-          td
+    .col-sm-8.col-sm-offset-2.outside-content
       .trip-button
         a(href='/#/plan')
           button.btn.btn-success.btn-lg.btn-group-justified Plan A Trip
+      h3 Open Trips
+      .panel.panel-default.row
+        .panel-heading.h3.col-sm-2.panel-title Picture
+        .panel-heading.h3.col-sm-2.panel-title Destination
+        .panel-heading.h3.col-sm-2.panel-title Date
+        .panel-heading.h3.col-sm-6.panel-title.center-content Notes
+        a(ng-repeat='(who, trip) in out.allTrips' href='/#/trip:{{who}}')
+          .row.panel-body(ng-class='{"stand-out": ($index % 2)}')
+            .col-sm-2: img(ng-src='{{out.profPic[$index]}}')
+            .col-sm-2{{trip.location}}
+            .col-sm-2{{trip.date}}
+            .col-sm-6{{trip.notes}}
+
 

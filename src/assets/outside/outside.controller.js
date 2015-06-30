@@ -1,10 +1,32 @@
 angular
   .module('clippedIn')
-  .controller('OutsideCtrl', function(Outside){
+  .controller('OutsideCtrl', function(Outside, $rootScope, $location, Profile){
 //==================CONTROLLER FOR THE GET OUTSIDE PAGE====================
     var main = this;
+    var userID = $rootScope.auth.uid;
+    main.profPic = [];
+
+    //create a trip... one per user
+    main.createTrip = function(){
+      Outside.createTrip(main.trip, userID, function(res){
+        $location.path('/outside');
+      });
+    }
+
+    //get trip list
+    Outside.getTrips(function(allTrips){
+      main.allTrips = allTrips;
+      //get prof pic for trip list
+      for(var who in main.allTrips){
+        Profile.getProfile(who, function(res){
+          main.profPic.push(res.photo);
+        });
+      }
+    })
+
+
+    //get IP location object
     Outside.getGeo(function(data){
-      console.log(data);
       main.geoObj = data;
     })
 
@@ -15,6 +37,6 @@ angular
 
     //set overflow only on outside page
       //note: this command must be in javascript so that it activates on page change
-    $('body').css('overflow', 'hidden');
+    // $('body').css('overflow', 'hidden');
 
-  })
+  });

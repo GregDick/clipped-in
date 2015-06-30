@@ -1,21 +1,26 @@
+//=====================Get Outside Page=========================
+
 .outside{
   position: relative;
-  height: 700px;
+  height: 600px;
 }
 
 .outside-content{
   position: relative;
   z-index: 2;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .outside img {
-  position: absolute;
+  position: fixed;
   z-index: -1;
   left: 0;
-  top: -89px;
+  top: 0;
   width: 100%;
   height: auto;
   opacity: 0.5;
+  overflow: hidden;
 }
 
 .outside h1{
@@ -26,9 +31,18 @@
   margin-left: 20px;
 }
 
+.outside-content img{
+  max-width: 200px;
+  height: auto;
+  position: inherit;
+  z-index: 2;
+  opacity: 1;
+  border-radius: 5px;
+}
+
 .trip-button{
   width: 60%;
-  margin: auto;
+  margin: 2% auto;
 }
 
 .trip-button button{
@@ -42,7 +56,26 @@
     transition: 1s;
 }
 
+.panel{
+  overflow-x: hidden;
+}
+
+.center-content{
+  text-align: center;
+}
+
+.stand-out{
+  background-color: rgba(10, 10, 10, 0.1);
+}
+
+//=====================Plan Page=========================
+
+
 .plan-form{
   margin-top: 25px;
 }
+
+
+
+//=====================Trip Page=========================
 
