@@ -7,13 +7,14 @@
           button.btn.btn-success.btn-lg.btn-group-justified Plan A Trip
       h3 Open Trips
       .panel.panel-default.row
-        .panel-heading.h3.col-sm-2.panel-title Picture
+        .panel-heading.h3.col-sm-2.panel-title Who
         .panel-heading.h3.col-sm-2.panel-title Destination
         .panel-heading.h3.col-sm-2.panel-title Date
         .panel-heading.h3.col-sm-6.panel-title.center-content Notes
-        a(ng-repeat='(who, trip) in out.allTrips' href='/#/trip:{{who}}')
+        a(ng-repeat='(who, trip) in out.allTrips' href='/#/trip/{{who}}')
           .row.panel-body(ng-class='{"stand-out": ($index % 2)}')
-            .col-sm-2: img(ng-src='{{out.profPic[$index]}}')
+            .col-sm-2{{trip.name}}
+              img(ng-src='{{trip.profPic}}')
             .col-sm-2{{trip.location}}
             .col-sm-2{{trip.date}}
             .col-sm-6{{trip.notes}}

@@ -113,7 +113,6 @@ angular
 
     //get geolocation to filter users
     Outside.getGeo(function(data){
-      console.log(data);
       main.geoObj = data;
     })
 

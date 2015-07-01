@@ -1,14 +1,20 @@
 angular
   .module('clippedIn')
-  .controller('OutsideCtrl', function(Outside, $rootScope, $location, Profile){
+  .controller('OutsideCtrl', function(Outside, $rootScope, $location, Profile, $routeParams){
 //==================CONTROLLER FOR THE GET OUTSIDE PAGE====================
     var main = this;
     var userID = $rootScope.auth.uid;
-    main.profPic = [];
+    main.trip = {};
+    main.viewID = $routeParams.id;
 
+    //attach name and pic to trip obj
+    Profile.getProfile(userID, function(response){
+        main.trip.profPic = response.photo;
+        main.trip.name = response.name;
+      })
     //create a trip... one per user
     main.createTrip = function(){
-      Outside.createTrip(main.trip, userID, function(res){
+      Outside.createTrip(main.trip, userID, function(){
         $location.path('/outside');
       });
     }
@@ -16,12 +22,7 @@ angular
     //get trip list
     Outside.getTrips(function(allTrips){
       main.allTrips = allTrips;
-      //get prof pic for trip list
-      for(var who in main.allTrips){
-        Profile.getProfile(who, function(res){
-          main.profPic.push(res.photo);
-        });
-      }
+      main.thisTrip = allTrips[main.viewID];
     })
 
 
