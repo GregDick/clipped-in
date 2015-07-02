@@ -1,2 +1,2 @@
 angular
-  .module('clippedIn', ['ngRoute', 'firebase']);
+  .module('clippedIn', ['ngRoute', 'firebase', 'oitozero.ngSweetAlert']);

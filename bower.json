@@ -20,8 +20,9 @@
     "jquery": "~2.1.4",
     "angular-route": "~1.4.1",
     "firebase": "~2.2.7",
-    "angular-google-maps": "~2.1.5",
     "lodash": "~3.9.3",
-    "angularfire": "~1.1.2"
+    "angularfire": "~1.1.2",
+    "sweetalert": "~1.0.1",
+    "angular-sweetalert": "~1.1.0"
   }
 }

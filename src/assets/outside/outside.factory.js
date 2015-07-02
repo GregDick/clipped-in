@@ -16,6 +16,11 @@ angular
         $http
           .get(`${FB_URL}/trip.json`)
           .success(cb)
+      },
+      addTripRequest(plannerID, userID, cb){
+        $http
+          .put(`${FB_URL}/profile/${plannerID}/tripRequests.json`, JSON.stringify(userID))
+          .success(cb)
       }
     }
   });
