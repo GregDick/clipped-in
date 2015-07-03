@@ -6,13 +6,23 @@
       h3(ng-show='{{out.thisTrip.notes}}') Here's what you need to know:
         h4{{out.thisTrip.notes}}
       h3 Who's going?
-        span(ng-show='{{out.thisTrip.who.length}}')  {{out.thisTrip.who}}
-        span(ng-hide='{{out.thisTrip.who.length}}')  No one yet...
-  .col-md-4.col-md-offset-1
+        span(ng-hide='{{out.thisTrip.members}}')
+          span(ng-repeat='(hash, value) in out.thisTrip.members')  {{value}}
+        span(ng-show='{{out.thisTrip.members}}')  No one yet...
+  .col-md-4
     .request
       a(href='/#/person/{{out.viewID}}')
         img(ng-src='{{out.thisTrip.profPic}}')
 .row
-  .col-md-6.col-md-offset-3
-    button.btn.btn-info.btn-block(ng-click='out.tripRequest()') Ask to join {{out.thisTrip.name}}'s trip
-
+  .col-md-8.col-md-offset-2
+    button.btn.btn-info.btn-block.request-button(ng-hide='out.self' ng-click='out.tripRequest()') Ask to join {{out.thisTrip.name}}'s trip
+    h1(ng-show='out.self') Trip Requests
+    h3(ng-hide='out.requestList || !out.self') No requests right now...
+    .trip-requests(ng-show='out.self' ng-repeat='(id, profile) in out.nameList' ng-class='{"stand-out": ($index % 2)}')
+      .row(class='{{profile.simpleLogin}}' ng-hide='out.{{$index}}')
+        .col-md-4.col-md-offset-2
+          img(ng-src='{{profile.photo}}')
+          span.h4 {{profile.name}}
+        .col-md-3
+          button.btn.btn-success.accept(ng-click='out.accept(profile.simpleLogin, $index)') Add to trip
+          button.btn.btn-danger.reject(ng-click='out.reject(profile.simpleLogin, $index)') Maybe not...

@@ -7,20 +7,23 @@ angular
     main.trip = {};
     main.viewID = $routeParams.id;
 
+    //are you viewing your own trip page?
+    main.self = main.viewID === userID ? true : false;
+
     //attach name and pic to trip obj
     Profile.getProfile(userID, function(response){
         main.trip.profPic = response.photo;
         main.trip.name = response.name;
-        main.trip.who = [];
+        main.trip.members = [];
       })
-    //create a trip... one per user
+    //create a trip. one per user
     main.createTrip = function(){
       Outside.createTrip(main.trip, userID, function(){
         $location.path('/outside');
       });
     }
 
-    //get trip list
+    //get list of trips
     Outside.getTrips(function(allTrips){
       main.allTrips = allTrips;
       main.thisTrip = allTrips[main.viewID];
@@ -29,7 +32,7 @@ angular
     //request to be added to trip members
     main.tripRequest = function(){
       Outside.addTripRequest(main.viewID, userID, function(list){
-        console.log(list);
+        $('.request-button').addClass('disabled');
         SweetAlert.swal({
           title: 'Request Sent!',
           type: 'success',
@@ -40,8 +43,68 @@ angular
       })
     }
 
-    //get trip member's names
+    // get list of trip requests
+    Outside.getTripRequests(main.viewID, function(response){
+      main.requestList = response;
+      main.nameList = [];
+      for(var id in main.requestList){
+        //disable button if you've already requested once
+        if(id===userID){
+          $('.request-button').addClass('disabled');
+        }
+        //get trip member's names
+          //fuck yea just learned how to use closure
+        (function(profileID){
+          Profile.getProfile(profileID, function(data){
+            data.simpleLogin = profileID;
+            main.nameList.push(data);
+          })
+        })(id);
+      }
+    })
 
+    //add to trip members and notify requester
+    main.accept = function(simpleLogin, index){
+      main[index] = true;
+      Outside.deleteTripRequest(userID, simpleLogin, function(){
+
+      });
+      Outside.addTripMember(userID, simpleLogin, function(){
+
+      });
+      //notify requester
+      main.tripObj = {};
+      main.tripObj[userID] = true;
+      Outside.notify(simpleLogin, main.tripObj, function(){
+        SweetAlert.swal({
+          title: 'Added to trip members!',
+          type: 'success',
+          allowOutsideClick: true,
+          showConfirmButton: false,
+          timer: 3000
+        });
+      })
+    }
+
+    //delete trip request and notify requester
+    main.reject = function(simpleLogin, index){
+      main[index] = true;
+      Outside.deleteTripRequest(userID, simpleLogin, function(){
+
+      });
+      //notify requester
+      main.tripObj = {};
+      main.tripObj[userID] = false;
+      Outside.notify(simpleLogin, main.tripObj, function(){
+        SweetAlert.swal({
+          title: 'Request Deleted!',
+          type: 'info',
+          allowOutsideClick: true,
+          showConfirmButton: false,
+          timer: 3000
+        });
+      })
+    }
 
     //get IP location object
     Outside.getGeo(function(data){
