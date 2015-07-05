@@ -79,14 +79,25 @@
 
 //=====================Trip Page=========================
 
+.members a{
+  display: inline-block;
+}
+.members img{
+  height: 150px;
+  width: 150px;
+  display: inline;
+}
+
 .request img{
   max-height: 300px;
   width: auto;
   border-radius: 5px;
+  margin-top: 10px;
 }
 
 .request-button{
-  width: 75%;
+  margin: 15px auto;
+  width: 50%;
 }
 
 .trip-requests img{

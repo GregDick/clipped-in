@@ -27,6 +27,19 @@ angular
     Outside.getTrips(function(allTrips){
       main.allTrips = allTrips;
       main.thisTrip = allTrips[main.viewID];
+
+      //get profiles of current trip members
+      main.thisTrip.profiles = [];
+      for(var simpleID in main.thisTrip.members){
+        //using closure again
+        (function(profileID){
+          Profile.getProfile(profileID, function(data){
+            data.simpleLogin = profileID;
+            main.thisTrip.profiles.push(data);
+          })
+        })(main.thisTrip.members[simpleID]);
+      }
+
     })
 
     //request to be added to trip members
@@ -66,12 +79,8 @@ angular
     //add to trip members and notify requester
     main.accept = function(simpleLogin, index){
       main[index] = true;
-      Outside.deleteTripRequest(userID, simpleLogin, function(){
-
-      });
-      Outside.addTripMember(userID, simpleLogin, function(){
-
-      });
+      Outside.deleteTripRequest(userID, simpleLogin, function(){});
+      Outside.addTripMember(userID, simpleLogin, function(){});
       //notify requester
       main.tripObj = {};
       main.tripObj[userID] = true;
@@ -87,11 +96,12 @@ angular
     }
 
     //delete trip request and notify requester
+    //===============request is dynamically generated so try $().on(click, 'request')
+
+
     main.reject = function(simpleLogin, index){
       main[index] = true;
-      Outside.deleteTripRequest(userID, simpleLogin, function(){
-
-      });
+      Outside.deleteTripRequest(userID, simpleLogin, function(){});
       //notify requester
       main.tripObj = {};
       main.tripObj[userID] = false;

@@ -1,8 +1,10 @@
 angular
   .module('clippedIn')
-  .controller('PersonCtrl', function(Profile, $routeParams, FB_URL, $filter, $scope){
+  .controller('PersonCtrl', function(Profile, $routeParams, FB_URL, $filter, $scope, $rootScope, $location){
 //=====================THIS CONTROLLER IS FOR VIEWING SOMEONE ELSE'S PROFILE===================
     var main = this;
+
+
 
     //call popover toggle function
     main.toggleTop = function (){
@@ -17,6 +19,11 @@ angular
 
     //gets id of profile that is being viewed
     main.id = $routeParams.id;
+
+    //if this is your own profile redirect to /#/profile
+    if(authData.uid === main.id){
+      $location.path('/profile');
+    }
 
     Profile.getProfile(main.id, function(profileObj){
       main.profileObj = profileObj;

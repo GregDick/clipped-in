@@ -16,6 +16,9 @@ angular
       $scope.$apply();
     }else{}
 
+    //alert notifications if you have them
+
+
     // popover toggle function
     main.toggleTop = function (){
       $('.topPop').popover('toggle');
