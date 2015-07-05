@@ -42,6 +42,13 @@ angular
         $http
           .get(`${FB_URL}/lead/${profileID}.json`)
           .success(cb)
+      },
+
+      deleteNotifications(profileID, cb){
+        $http
+          .delete(`${FB_URL}/profile/${profileID}/notifications.json`)
+          .success(cb)
       }
+
     }
   });

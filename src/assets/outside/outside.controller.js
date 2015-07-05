@@ -82,9 +82,7 @@ angular
       Outside.deleteTripRequest(userID, simpleLogin, function(){});
       Outside.addTripMember(userID, simpleLogin, function(){});
       //notify requester
-      main.tripObj = {};
-      main.tripObj[userID] = true;
-      Outside.notify(simpleLogin, main.tripObj, function(){
+      Outside.notify(simpleLogin, userID, true, function(){
         SweetAlert.swal({
           title: 'Added to trip members!',
           type: 'success',
@@ -103,9 +101,7 @@ angular
       main[index] = true;
       Outside.deleteTripRequest(userID, simpleLogin, function(){});
       //notify requester
-      main.tripObj = {};
-      main.tripObj[userID] = false;
-      Outside.notify(simpleLogin, main.tripObj, function(){
+      Outside.notify(simpleLogin, userID, false, function(){
         SweetAlert.swal({
           title: 'Request Deleted!',
           type: 'info',

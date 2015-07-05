@@ -37,9 +37,9 @@ angular
           .post(`${FB_URL}/trip/${userID}/members.json`, JSON.stringify(memberID))
           .success(cb)
       },
-      notify(requesterID, notifyObj, cb){
+      notify(requesterID, userID, value, cb){
         $http
-          .put(`${FB_URL}/profile/${requesterID}/notifications.json`, notifyObj)
+          .put(`${FB_URL}/profile/${requesterID}/notifications/${userID}.json`, value)
           .success(cb)
       }
     }

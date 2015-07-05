@@ -1,6 +1,6 @@
 angular
   .module('clippedIn')
-  .controller('AuthCtrl', function(FB_URL, $rootScope, $scope, $location, Profile){
+  .controller('AuthCtrl', function(FB_URL, $rootScope, $scope, $location, Profile, SweetAlert){
     var main = this;
     var fb = new Firebase(FB_URL);
     main.resetSuccess = false;
@@ -12,7 +12,14 @@ angular
         password: password
       }, function(err, authData){
         if(err){
-          console.log(err);
+          SweetAlert.swal({
+            title: 'Login Failed',
+            type: 'error',
+            text: err,
+            allowOutsideClick: true,
+            showConfirmButton: false,
+            timer: 3000
+          })
         }else{
           $rootScope.auth = authData;
           $('#modal').modal('hide');

@@ -1,12 +1,16 @@
 angular
   .module('clippedIn')
   .controller('ProfileCtrl', function($scope, $rootScope, Profile, $location,
-   $filter, FB_URL, Outside, $firebaseObject){
+   $filter, FB_URL, Outside, $firebaseObject, SweetAlert){
 //==============THIS CONTROLLER IS FOR THE MEET THE LOCALS PAGE AND FOR VIEWING YOUR OWN PROFILE==========
 
     var main = this;
     main.belay = '';
     var fb = new Firebase(FB_URL);
+
+    //get id of who is logged in
+    var authData = fb.getAuth();
+    main.id = authData.uid;
 
     //on temp password redirect to temp
     if($rootScope.auth.password.isTemporaryPassword){
@@ -16,9 +20,6 @@ angular
       $scope.$apply();
     }else{}
 
-    //alert notifications if you have them
-
-
     // popover toggle function
     main.toggleTop = function (){
       $('.topPop').popover('toggle');
@@ -26,10 +27,6 @@ angular
     main.toggleLead = function (){
       $('.leadPop').popover('toggle');
     }
-
-    //get id of who is logged in
-    var authData = fb.getAuth();
-    main.id = authData.uid;
 
     //make own profile editable with three-way data binding
     //also gets profile data
@@ -49,6 +46,33 @@ angular
       }else{
         main.belay = " doesn't know how to belay yet...";
       }
+      //notify of notifications
+      var textString = '';
+      for(var who in main.syncObject.notifications){
+        //use closure
+        (function(profileID){
+          Profile.getProfile(profileID, function(data){
+
+            if(main.syncObject.notifications[profileID] === true){
+              textString += data.name + ' added you to their trip!\n'
+            }
+            else{
+              textString += data.name + " didn't add you to their trip...\n"
+            }
+            //pop up notification followed by delete notification
+            SweetAlert.swal({
+              title: 'Trip Request Notification!',
+              type: 'warning',
+              text: textString,
+              confirmButtonText: "Sound's Good! Delete this notification"
+            },
+              Profile.deleteNotifications(main.id, function(response){})
+            );
+
+          })
+        })(who);
+      }
+
     })
 
     //show edit-modal
