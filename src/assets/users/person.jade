@@ -7,16 +7,16 @@
         p.lead {{profile.profileObj.age}} from {{profile.profileObj.location}}
         p.lead(ng-show='profile.profileObj.grade') Climbs {{profile.profileObj.grade}}!
         p.lead {{profile.profileObj.name}} {{profile.belay}}
-  .col-md-8.col-md-offset-2.agreeBox
-    .whoAgrees
+.row
+  .col-md-2.col-md-offset-3
+    button.btn.btn-default.btn-block.vote(ng-show='profile.topRope' ng-click='profile.endorseTopRope()' ng-class='{disabled : profile.disableTopRope}') + Top-Rope
+    button.btn.btn-default.btn-block.vote(ng-show='profile.lead' ng-click='profile.endorseLead()' ng-class='{disabled : profile.disableLead}') + Lead
+  .col-md-7.agreeBox
+    .whoAgrees.text-left
       a.h3.topPop(ng-click='profile.toggleTop()' data-animation='true' data-toggle='popover' data-trigger='manual' data-placement='bottom' data-content='{{profile.topRopeNames.join(", ")}}'){{profile.topRopePeople}}
       span.h3(ng-show='profile.topRopePeople'){{profile.profileObj.name}} is a great top-rope belayer!
-    .row
+    .text-left
       a.h3.leadPop(ng-click='profile.toggleLead()' data-animation='true' data-toggle='popover' data-trigger='manual' data-placement='bottom' data-content='{{profile.leadNames.join(", ")}}'){{profile.leadPeople}}
       span.h3(ng-show='profile.leadPeople'){{profile.profileObj.name}} is a great lead belayer!
-    .agree(ng-hide='auth.uid === profile.id')
-      h2(ng-show='profile.topRope || profile.lead') Recommend {{profile.profileObj.name}}'s belay skills!
-      button.btn.btn-info(ng-show='profile.topRope' ng-click='profile.endorseTopRope()' ng-class='{disabled : profile.disableTopRope}') + Top-Rope
-      button.btn.btn-info(ng-show='profile.lead' ng-click='profile.endorseLead()' ng-class='{disabled : profile.disableLead}') + Lead
     a(ng-show='profile.tripLink' href='{{profile.tripLink}}')
       button.btn.btn-block.btn-primary.trip-button {{profile.profileObj.name}} planned a trip!

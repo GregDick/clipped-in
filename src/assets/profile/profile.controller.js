@@ -66,7 +66,7 @@ angular
               text: textString,
               confirmButtonText: "Sound's Good! Delete this notification"
             },
-              Profile.deleteNotifications(main.id, function(response){})
+              Profile.deleteNotifications(main.id, function(){})
             );
 
           })

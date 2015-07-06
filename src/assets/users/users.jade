@@ -2,7 +2,7 @@
   .col-md-10.col-md-offset-1.panel.panel-default
     .row.panel-heading
       h1 THE LOCALS
-      h4 These climbers live near {{profile.geoObj.city}}, {{profile.geoObj.region}}
+      h4.text-right These climbers live near {{profile.geoObj.city}}, {{profile.geoObj.region}}
       .single.row
         .profile-item(ng-show="profile.geoObj.region === value.state" ng-repeat="(id, value) in profile.everyoneObj")
           a(href='/#/person/{{id}}' ng-mouseover='profile.show()' ng-mouseleave='profile.hide()')
@@ -10,7 +10,7 @@
             span.hidden.h4{{value.name}}
             span.lower.hidden.h4{{value.location}}
     .row
-      h4 But we have users all over the country...
+      h4.text-right But we have users all over the country...
     .other.row.panel-body
       .profile-item(ng-show="profile.geoObj.region !== value.state" ng-repeat="(id, value) in profile.everyoneObj")
         a(href='/#/person/{{id}}' ng-mouseover='profile.show()' ng-mouseleave='profile.hide()' )

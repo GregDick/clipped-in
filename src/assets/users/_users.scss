@@ -6,6 +6,16 @@
   padding-top: 20px;
 }
 
+.lead{
+  color: #df691a;
+}
+
+.vote{
+  margin-bottom: 2px;
+  text-align: center;
+}
+
+
 .single, .other{
   display: flex;
   flex-direction: row;
@@ -39,9 +49,12 @@
   opacity: 0.8;
 }
 
+.col-md-7.col-md-offset-1.agreeBox{
+  padding-left: 0;
+}
 
 .trip-button{
-  margin: 20px auto;
+  margin: 20px 0;
   width: 60%;
 }
 

@@ -5,7 +5,8 @@ angular
     .when('/outside', {
       templateUrl: 'assets/outside/outside.html',
       controller: 'OutsideCtrl',
-      controllerAs: 'out'
+      controllerAs: 'out',
+      private: true
     })
     .when('/trip/:id', {
       templateUrl: 'assets/outside/trip.html',

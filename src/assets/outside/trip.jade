@@ -2,7 +2,7 @@
   .col-md-5.col-md-offset-2
     .the-trip
       h1 Hey I'm {{out.thisTrip.name}} and I'm planning a trip to {{out.thisTrip.location}}!
-      h3 When? {{out.thisTrip.date}}
+      h3 When? {{out.thisTrip.dateStart | date}} - {{out.thisTrip.dateEnd | date}}
       h3(ng-show='{{out.thisTrip.notes}}') Here's what you need to know:
         h4{{out.thisTrip.notes}}
   .col-md-4
@@ -27,4 +27,5 @@
           a(href='/#/person/{{profile.simpleLogin}}'): span.h4 {{profile.name}}
         .col-md-3
           button.btn.btn-success.accept(ng-click='out.accept(profile.simpleLogin)') Add to trip
+        .col-md-3
           button.btn.btn-danger.reject(ng-click='out.reject(profile.simpleLogin)') Maybe not...

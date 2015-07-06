@@ -32,9 +32,9 @@
   margin-left: 20px;
 }
 
-.outside-content img{
-  max-width: 200px;
-  height: auto;
+.panel-body img{
+  width: auto;
+  max-height: 150px;
   position: inherit;
   z-index: 2;
   opacity: 1;
@@ -42,7 +42,7 @@
 }
 
 .panel-title{
-  color: black;
+  color: #009605;
   background-color: rgba(10, 10, 10, 0.1);
 }
 
@@ -51,17 +51,17 @@
   text-align: center;
 }
 
-.trip-button{
+.plan-button{
   width: 60%;
   margin: 2% auto;
 }
 
-.trip-button button{
+.plan-button button{
   width:75%;
   margin: auto;
 }
 
-.trip-button button:hover{
+.plan-button button:hover{
     width: 100%;
     font-size: 1.5em;
     transition: 1s;
@@ -140,10 +140,16 @@
 
 .trip-requests button{
   border-radius: 5%;
-  margin: 10% 0;
+  margin: 20% 0;
 }
 
+.trip-requests a{
+  text-decoration: none;
+}
 
+.accept, .reject{
+  margin-top: 5px;
+}
 
 
 

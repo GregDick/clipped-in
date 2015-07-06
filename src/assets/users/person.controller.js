@@ -1,6 +1,6 @@
 angular
   .module('clippedIn')
-  .controller('PersonCtrl', function(Profile, $routeParams, FB_URL, $filter, $scope, $rootScope, $location, Outside){
+  .controller('PersonCtrl', function(Profile, $routeParams, FB_URL, $filter, $scope, $rootScope, $location, Outside, SweetAlert){
 //=====================THIS CONTROLLER IS FOR VIEWING SOMEONE ELSE'S PROFILE===================
     var main = this;
 
@@ -48,11 +48,23 @@ angular
     main.endorseTopRope = function(){
       Profile.addTopRope(main.id, authData.uid, function(){
         checkTopRope();
+        SweetAlert.swal({
+          title: '+1 Top-Rope Belay!',
+          type: 'success',
+          showConfirmButton: false,
+          timer: 1500
+        });
       })
     }
     main.endorseLead = function(){
       Profile.addLead(main.id, authData.uid, function(){
         checkLead();
+        SweetAlert.swal({
+          title: '+1 Lead Belay!',
+          type: 'success',
+          showConfirmButton: false,
+          timer: 1500
+        });
       })
     }
 

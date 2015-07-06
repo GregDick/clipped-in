@@ -7,7 +7,19 @@
           input.form-control(placeholder='Eg: Indian Creek, The Red River Gorge, Rifle...' ng-model='out.trip.location')
         .form-group
           label.control-label When are you going?
-          input#datepicker.form-control(type='text' ng-model='out.trip.date')
+          .row
+            .col-md-6
+                p.input-group
+                  input.form-control(type="text" placeholder='Start' datepicker-popup="{{format}}" ng-model="out.trip.dateStart" is-open="opened" close-text="Close")
+                  span.input-group-btn
+                    button.btn.btn-default(type="button" ng-click="open($event)")
+                      i.glyphicon.glyphicon-calendar
+            .col-md-6
+                p.input-group
+                  input.form-control(type="text" placeholder='End' datepicker-popup="{{format}}" ng-model="out.trip.dateEnd" is-open="opened" close-text="Close")
+                  span.input-group-btn
+                    button.btn.btn-default(type="button" ng-click="open($event)")
+                      i.glyphicon.glyphicon-calendar
         .form-group
           label.control-label Trip Notes
           textarea.form-control(placeholder="Any information you'd like to add..." rows='3' ng-model='out.trip.notes')

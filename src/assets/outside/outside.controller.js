@@ -1,6 +1,6 @@
 angular
   .module('clippedIn')
-  .controller('OutsideCtrl', function(Outside, $rootScope, $location, Profile, $routeParams, SweetAlert){
+  .controller('OutsideCtrl', function(Outside, $rootScope, $location, Profile, $routeParams, SweetAlert, $scope, $animate){
 //==================CONTROLLER FOR THE GET OUTSIDE PAGE====================
     var main = this;
     var userID = $rootScope.auth.uid;
@@ -116,7 +116,23 @@ angular
     }
 
     //initialize datepicker
-    $('#datepicker').datepicker();
+    $scope.today = function() {
+        $scope.dt = new Date();
+      };
+      $scope.today();
+
+    $scope.clear = function () {
+      $scope.dt = null;
+    };
+
+    $scope.open = function($event) {
+      $event.preventDefault();
+      $event.stopPropagation();
+
+      $scope.opened = true;
+    };
+
+    $scope.format = 'dd-MMMM-yyyy';
 
     //get IP location object
     Outside.getGeo(function(data){

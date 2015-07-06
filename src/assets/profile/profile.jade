@@ -6,21 +6,21 @@
         h1 {{myProfile.name}}
         p.lead {{myProfile.age}} from {{myProfile.location}}
         p.lead(ng-show='myProfile.grade') Climbs {{myProfile.grade}}!
-        p.lead {{myProfile.name}} {{profile.belay}}
+        p.lead You {{profile.belay}}
   .col-md-8.col-md-offset-2.agreeBox
     .whoAgrees
       a.h3.topPop(ng-click='profile.toggleTop()' data-animation='true' data-toggle='popover' data-trigger='manual' data-placement='bottom' data-content='{{profile.topRopeNames.join(", ")}}'){{profile.topRopePeople}}
-      span.h3(ng-show='profile.topRopePeople'){{myProfile.name}} is a great top-rope belayer!
+      span.h3(ng-show='profile.topRopePeople') you're a great top-rope belayer!
     .row
       a.h3.leadPop(ng-click='profile.toggleLead()' data-animation='true' data-toggle='popover' data-trigger='manual' data-placement='bottom' data-content='{{profile.leadNames.join(", ")}}'){{profile.leadPeople}}
-      span.h3(ng-show='profile.leadPeople'){{myProfile.name}} is a great lead belayer!
+      span.h3(ng-show='profile.leadPeople') you're a great lead belayer!
     .agree(ng-hide='auth.uid === profile.id')
       h2(ng-show='profile.topRope || profile.lead') Recommend {{myProfile.name}}'s belay skills!
       button.btn(ng-show='profile.topRope' ng-click='profile.endorseTopRope()' ng-class='{disabled : profile.disableTopRope}') + Top-Rope
       button.btn(ng-show='profile.lead' ng-click='profile.endorseLead()' ng-class='{disabled : profile.disableLead}') + Lead
   .col-md-6.col-md-offset-3.bottom-buttons
     a(ng-show='profile.tripLink' href='{{profile.tripLink}}')
-      button.btn.btn-block.btn-primary {{myProfile.name}} planned a trip!
+      button.btn.btn-block.btn-primary You've got a trip planned!
     button.edit-button.btn.btn-danger.btn-block(type='button' data-toggle='collapse' data-target="#edit") Edit
     .collapse#edit
       .well
