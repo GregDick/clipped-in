@@ -1,6 +1,6 @@
 angular
   .module('clippedIn')
-  .controller('PersonCtrl', function(Profile, $routeParams, FB_URL, $filter, $scope, $rootScope, $location){
+  .controller('PersonCtrl', function(Profile, $routeParams, FB_URL, $filter, $scope, $rootScope, $location, Outside){
 //=====================THIS CONTROLLER IS FOR VIEWING SOMEONE ELSE'S PROFILE===================
     var main = this;
 
@@ -103,5 +103,15 @@ angular
         }
       })
     };
+
+    //get trip list to see if profile should link to trip
+    Outside.getTrips(function(trips){
+      main.trips = trips;
+      for(var id in trips){
+        if(main.id===id){
+          main.tripLink = '/#/trip/'+id;
+        }
+      }
+    });
 
   })

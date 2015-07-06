@@ -25,9 +25,20 @@
   margin-bottom: 20px;
 }
 
+.bottom-buttons a{
+  text-decoration: none;
+}
+
+.bottom-buttons a button{
+  width: 75%;
+  margin: 5% 12.5%;
+  font-size: 1.25em;
+}
+
 .edit-button{
   width: 75%;
   margin: 5% 12.5%;
+  font-size: 1.25em;
 }
 
 .edit-button:focus{

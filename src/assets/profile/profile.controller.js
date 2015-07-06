@@ -75,6 +75,16 @@ angular
 
     })
 
+    //get trip list to see if profile should link to trip
+    Outside.getTrips(function(trips){
+      main.trips = trips;
+      for(var id in trips){
+        if(main.id===id){
+          main.tripLink = '/#/trip/'+id;
+        }
+      }
+    });
+
     //show edit-modal
     main.modalLoad = function(){
       $('#edit-modal').modal('show');

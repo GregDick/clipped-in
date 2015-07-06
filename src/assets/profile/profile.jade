@@ -18,8 +18,10 @@
       h2(ng-show='profile.topRope || profile.lead') Recommend {{myProfile.name}}'s belay skills!
       button.btn(ng-show='profile.topRope' ng-click='profile.endorseTopRope()' ng-class='{disabled : profile.disableTopRope}') + Top-Rope
       button.btn(ng-show='profile.lead' ng-click='profile.endorseLead()' ng-class='{disabled : profile.disableLead}') + Lead
-  .col-md-6.col-md-offset-3
-    button.edit-button.btn.btn-lg.btn-danger.btn-block(type='button' data-toggle='collapse' data-target="#edit") Edit
+  .col-md-6.col-md-offset-3.bottom-buttons
+    a(ng-show='profile.tripLink' href='{{profile.tripLink}}')
+      button.btn.btn-block.btn-primary {{myProfile.name}} planned a trip!
+    button.edit-button.btn.btn-danger.btn-block(type='button' data-toggle='collapse' data-target="#edit") Edit
     .collapse#edit
       .well
         form

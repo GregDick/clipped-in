@@ -5,16 +5,16 @@
       h3 When? {{out.thisTrip.date}}
       h3(ng-show='{{out.thisTrip.notes}}') Here's what you need to know:
         h4{{out.thisTrip.notes}}
-      h3 Who's going?
   .col-md-4
     .request
       a(href='/#/person/{{out.viewID}}')
         img(ng-src='{{out.thisTrip.profPic}}')
-.row(ng-hide='{{out.thisTrip.members}}')
+.row
   .col-md-10.col-md-offset-2.members
+    h3 Who's going?
     a(ng-repeat='(index, profile) in out.thisTrip.profiles' href='/#/person/{{profile.simpleLogin}}')
       img.img-circle(ng-src='{{profile.photo}}')
-    span(ng-show='{{out.thisTrip.members}}')  No one yet...
+    span.h4(ng-hide='out.thisTrip.members')  No one yet...
 .row
   .col-md-8.col-md-offset-2.request-half
     button.btn.btn-info.btn-block.request-button(ng-hide='out.self' ng-click='out.tripRequest()') Ask to join {{out.thisTrip.name}}'s trip

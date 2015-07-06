@@ -60,12 +60,23 @@
   overflow-x: hidden;
 }
 
+.panel-body{
+  color: gray;
+}
+
 .center-content{
   text-align: center;
 }
 
 .stand-out{
   background-color: rgba(10, 10, 10, 0.1);
+}
+
+.caption{
+  position: fixed;
+  bottom: 0;
+  color: white;
+  opacity: 0.85;
 }
 
 //=====================Plan Page=========================

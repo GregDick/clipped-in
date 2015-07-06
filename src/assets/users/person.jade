@@ -18,3 +18,5 @@
       h2(ng-show='profile.topRope || profile.lead') Recommend {{profile.profileObj.name}}'s belay skills!
       button.btn(ng-show='profile.topRope' ng-click='profile.endorseTopRope()' ng-class='{disabled : profile.disableTopRope}') + Top-Rope
       button.btn(ng-show='profile.lead' ng-click='profile.endorseLead()' ng-class='{disabled : profile.disableLead}') + Lead
+    a(ng-show='profile.tripLink' href='{{profile.tripLink}}')
+      button.btn.btn-block.btn-primary {{profile.profileObj.name}} planned a trip!
