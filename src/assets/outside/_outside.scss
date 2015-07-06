@@ -10,6 +10,7 @@
   z-index: 2;
   overflow-y: auto;
   overflow-x: hidden;
+  color: gray;
 }
 
 .outside img {
@@ -40,6 +41,16 @@
   border-radius: 5px;
 }
 
+.panel-title{
+  color: black;
+  background-color: rgba(10, 10, 10, 0.1);
+}
+
+.panel-body{
+  font-size: 1.25em;
+  text-align: center;
+}
+
 .trip-button{
   width: 60%;
   margin: 2% auto;
@@ -56,12 +67,16 @@
     transition: 1s;
 }
 
+.top-panel{
+  cursor: pointer;
+}
+
 .panel{
   overflow-x: hidden;
 }
 
 .panel-body{
-  color: gray;
+  color: rgba(255, 255, 255, 0.65);
 }
 
 .center-content{
@@ -75,6 +90,7 @@
 .caption{
   position: fixed;
   bottom: 0;
+  z-index: 5;
   color: white;
   opacity: 0.85;
 }
@@ -84,6 +100,10 @@
 
 .plan-form{
   margin-top: 25px;
+}
+
+.plan-form label{
+  font-size: 1.25em;
 }
 
 

@@ -5,12 +5,11 @@
       .trip-button
         a(href='/#/plan')
           button.btn.btn-success.btn-lg.btn-group-justified Plan A Trip
-      h3.text-center &#x25BC Display Trips &#x25BC
-      .panel.panel-default.row
+      .panel.panel-default.row.top-panel
         a(data-toggle='collapse' data-target='#tripCollapse')
-          .panel-heading.h3.col-sm-2.panel-title Who
-          .panel-heading.h3.col-sm-2.panel-title Destination
-          .panel-heading.h3.col-sm-2.panel-title Date
+          .panel-heading.h3.col-sm-2.panel-title.center-content Who
+          .panel-heading.h3.col-sm-2.panel-title.center-content Destination
+          .panel-heading.h3.col-sm-2.panel-title.center-content Date
           .panel-heading.h3.col-sm-6.panel-title.center-content Notes
         #tripCollapse.collapse
           a(ng-repeat='(who, trip) in out.allTrips' href='/#/trip/{{who}}')
@@ -20,7 +19,7 @@
                   img(ng-src='{{trip.profPic}}')
               .col-sm-2{{trip.location}}
               .col-sm-2{{trip.date}}
-              .col-sm-6{{trip.notes}}
+              .col-sm-6.text-left{{trip.notes}}
     .row
       .col-md-2.col-md-offset-10.caption
         h3.caption{{out.picText}}

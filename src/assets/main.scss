@@ -3,6 +3,8 @@
 @import 'users/users';
 @import 'outside/outside';
 
+
+
 body{
   overflow-x: hidden;
 }
@@ -15,19 +17,50 @@ body{
 
 .jumbotron h1 a{
   text-decoration: none;
+  color: #009605;
 }
 
 .head-logo, nav{
   display: inline-block;
   margin-bottom: 0;
+
 }
 
 .jumbotron nav{
-  margin: 0 10% -10px;
+  margin: 20px 0 0 10%;
+}
+
+.nav a{
+  font-size: 1.75em;
+  color: #009605;
 }
 
 .nav a:hover{
-  font-size: 1.25em;
+  color: #469600;
+  font-size: 2em;
   transition: 0.25s;
   transition-delay: 0.1s;
 }
+
+.btn-primary{
+  background-color: #67D6A6;
+  border-color: #67D6A6;
+}
+
+.btn-primary:hover, .btn-primary:active, .btn-primary:focus{
+  background-color: #00B366 !important;
+  border-color: #67D6A6 !important;
+}
+
+.btn-primary.disabled{
+  background-color: #67D6A6 !important;
+  border-color: #67D6A6!important;
+  opacity: 0.5;
+}
+
+
+
+
+
+
+

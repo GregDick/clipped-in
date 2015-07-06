@@ -31,6 +31,9 @@ angular
       //get profiles of current trip members
       main.thisTrip.profiles = [];
       for(var simpleID in main.thisTrip.members){
+        if(userID===main.thisTrip.members[simpleID]){
+          $('.request-button').addClass('disabled');
+        }
         //using closure again
         (function(profileID){
           Profile.getProfile(profileID, function(data){
@@ -111,6 +114,9 @@ angular
         });
       })
     }
+
+    //initialize datepicker
+    $('#datepicker').datepicker();
 
     //get IP location object
     Outside.getGeo(function(data){

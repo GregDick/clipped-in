@@ -7,7 +7,7 @@
           input.form-control(placeholder='Eg: Indian Creek, The Red River Gorge, Rifle...' ng-model='out.trip.location')
         .form-group
           label.control-label When are you going?
-          input.form-control(placeholder='Date Picker' ng-model='out.trip.date')
+          input#datepicker.form-control(type='text' ng-model='out.trip.date')
         .form-group
           label.control-label Trip Notes
           textarea.form-control(placeholder="Any information you'd like to add..." rows='3' ng-model='out.trip.notes')

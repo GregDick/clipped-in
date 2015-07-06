@@ -1,6 +1,19 @@
+.login-form{
+  margin-top: 90px;
+}
+
+.login-form input{
+  background-color: #E3FCE4;
+  opacity: 0.5;
+}
+
+.login-form input:focus{
+  opacity: 1;
+}
+
 .login-form input, .buttons{
   width: 65%;
-  margin: 15px auto;
+  margin: 30px auto;
 }
 
 .btn a:hover{
@@ -10,3 +23,56 @@
 .btn a{
   color: white;
 }
+
+.btn-info{
+  background-color: #D6A667;
+  border-color: #D6A667;
+}
+
+.btn-info:hover, .btn-info:active, .btn-info:focus{
+  background-color: #BF8130 !important;
+  border-color: #D6A667 !important;
+}
+
+.btn-info.disabled{
+  background-color: #D6A667 !important;
+  border-color: #D6A667 !important;
+}
+
+
+
+.btn-danger{
+  background-color: #CFD667;
+  border-color: #CFD667;
+}
+
+.btn-danger.disabled{
+  background-color: #CFD667 !important;
+  border-color: #CFD667 !important;
+}
+
+.btn-danger:hover, .btn-danger:active, .btn-danger:focus{
+  background-color: #A7B300 !important;
+  border-color: #CFD667 !important;
+}
+
+
+//==================RESET PASSWORD PAGE=============
+
+.reset input{
+  margin: 15px auto;
+  width: 88%;
+  display: inline !important;
+}
+
+.reset button{
+  display: inline !important;
+  margin-left: -3px;
+}
+
+
+
+
+
+
+
