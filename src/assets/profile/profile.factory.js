@@ -2,49 +2,49 @@ angular
   .module('clippedIn')
   .factory('Profile', function($http, FB_URL){
     return{
-      create(personObject, userID, cb){
+      create: function(personObject, userID, cb){
         $http
           .put(`${FB_URL}/profile/${userID}.json`, personObject)
           .success(cb)
       },
 
-      getProfile(profileID, cb){
+      getProfile: function(profileID, cb){
         $http
           .get(`${FB_URL}/profile/${profileID}.json`)
           .success(cb)
       },
 
-      getEveryone(cb){
+      getEveryone: function(cb){
         $http
           .get(`${FB_URL}/profile.json`)
           .success(cb)
       },
 
-      addTopRope(profileID, userID, cb){
+      addTopRope: function(profileID, userID, cb){
         $http
           .post(`${FB_URL}/topRope/${profileID}.json`, JSON.stringify(userID))
           .success(cb)
       },
 
-      addLead(profileID, userID, cb){
+      addLead: function(profileID, userID, cb){
         $http
           .post(`${FB_URL}/lead/${profileID}.json`, JSON.stringify(userID))
           .success(cb)
       },
 
-      getTopRope(profileID, cb){
+      getTopRope: function(profileID, cb){
         $http
           .get(`${FB_URL}/topRope/${profileID}.json`)
           .success(cb)
       },
 
-      getLead(profileID, cb){
+      getLead: function(profileID, cb){
         $http
           .get(`${FB_URL}/lead/${profileID}.json`)
           .success(cb)
       },
 
-      deleteNotifications(profileID, cb){
+      deleteNotifications: function(profileID, cb){
         $http
           .delete(`${FB_URL}/profile/${profileID}/notifications.json`)
           .success(cb)
