@@ -1,0 +1,60 @@
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="profileBox"><img ng-src="{{myProfile.photo}}"/>
+      <div class="profileText">
+        <h1>{{myProfile.name}}</h1>
+        <p class="lead">{{myProfile.age}} from {{myProfile.location}}</p>
+        <p ng-show="myProfile.grade" class="lead">Climbs {{myProfile.grade}}!</p>
+        <p class="lead">You {{profile.belay}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-8 col-md-offset-2 agreeBox">
+    <div class="whoAgrees"><a ng-click="profile.toggleTop()" data-animation="true" data-toggle="popover" data-trigger="manual" data-placement="bottom" data-content="{{profile.topRopeNames.join(&quot;, &quot;)}}" class="h3 topPop">{{profile.topRopePeople}}</a><span ng-show="profile.topRopePeople" class="h3">you're a great top-rope belayer!</span></div>
+    <div class="row"><a ng-click="profile.toggleLead()" data-animation="true" data-toggle="popover" data-trigger="manual" data-placement="bottom" data-content="{{profile.leadNames.join(&quot;, &quot;)}}" class="h3 leadPop">{{profile.leadPeople}}</a><span ng-show="profile.leadPeople" class="h3">you're a great lead belayer!</span></div>
+    <div ng-hide="auth.uid === profile.id" class="agree">
+      <h2 ng-show="profile.topRope || profile.lead">Recommend {{myProfile.name}}'s belay skills!</h2>
+      <button ng-show="profile.topRope" ng-click="profile.endorseTopRope()" ng-class="{disabled : profile.disableTopRope}" class="btn">+ Top-Rope</button>
+      <button ng-show="profile.lead" ng-click="profile.endorseLead()" ng-class="{disabled : profile.disableLead}" class="btn">+ Lead</button>
+    </div>
+  </div>
+  <div class="col-md-6 col-md-offset-3 bottom-buttons"><a ng-show="profile.tripLink" href="{{profile.tripLink}}">
+      <button class="btn btn-block btn-primary">You've got a trip planned!</button></a>
+    <button type="button" data-toggle="collapse" data-target="#edit" class="edit-button btn btn-danger btn-block">Edit</button>
+    <div id="edit" class="collapse">
+      <div class="well">
+        <form>
+          <div class="form-group">
+            <label class="control-label">Name</label>
+            <input placeholder="{{myProfile.name}}" ng-model="myProfile.name" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <label class="control-label">Age</label>
+            <input placeholder="{{myProfile.age}}" ng-model="myProfile.age" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <label class="control-label">Where do you live?</label>
+            <input placeholder="{{myProfile.location}}" ng-model="myProfile.location" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <label class="control-label">What grade do you usually climb?</label>
+            <input placeholder="If you don't climb yet, just leave this blank" ng-model="myProfile.grade" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <label class="control-label">Can you top-rope belay?</label>
+            <input placeholder="{{myProfile.topRope}}" ng-model="myProfile.topRope" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <label class="control-label">Can you lead belay?</label>
+            <input placeholder="{{myProfile.lead}}" ng-model="myProfile.lead" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <label class="control-label">Upload your face!</label>
+            <input placeholder="http://i.imgur.com/catPictures.jpg" ng-model="myProfile.photo" class="form-control"/>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

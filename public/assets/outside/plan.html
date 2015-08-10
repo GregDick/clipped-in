@@ -1,0 +1,35 @@
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="plan-form">
+      <form>
+        <div class="form-group">
+          <label class="control-label">Where are you going?</label>
+          <input placeholder="Eg: Indian Creek, The Red River Gorge, Rifle..." ng-model="out.trip.location" class="form-control"/>
+        </div>
+        <div class="form-group">
+          <label class="control-label">When are you going?</label>
+          <div class="row">
+            <div class="col-md-6">
+              <p class="input-group">
+                <input type="text" placeholder="Start" datepicker-popup="{{format}}" ng-model="out.trip.dateStart" is-open="opened" close-text="Close" class="form-control"/><span class="input-group-btn">
+                  <button type="button" ng-click="open($event)" class="btn btn-default"><i class="glyphicon glyphicon-calendar"></i></button></span>
+              </p>
+            </div>
+            <div class="col-md-6">
+              <p class="input-group">
+                <input type="text" placeholder="End" datepicker-popup="{{format}}" ng-model="out.trip.dateEnd" is-open="opened" close-text="Close" class="form-control"/><span class="input-group-btn">
+                  <button type="button" ng-click="open($event)" class="btn btn-default"><i class="glyphicon glyphicon-calendar"></i></button></span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label">Trip Notes</label>
+          <textarea placeholder="Any information you'd like to add..." rows="3" ng-model="out.trip.notes" class="form-control"></textarea>
+        </div>
+        <button ng-click="out.createTrip()" class="btn btn-success btn-block">Make It Happen!</button>
+      </form>
+    </div>
+  </div>
+</div>
