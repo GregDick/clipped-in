@@ -9,7 +9,7 @@
           <div class="panel-heading h3 col-sm-2 panel-title center-content">Destination</div>
           <div class="panel-heading h3 col-sm-4 panel-title center-content">Date</div>
           <div class="panel-heading h3 col-sm-4 panel-title center-content">Notes</div></a>
-        <div id="tripCollapse" class="collapse"><a ng-repeat="(who, trip) in out.allTrips" href="#/trip/{{who}}">
+        <div id="tripCollapse" class="collapse in"><a ng-repeat="(who, trip) in out.allTrips" href="#/trip/{{who}}">
             <div ng-class="{&quot;stand-out&quot;: ($index % 2)}" class="row panel-body">
               <div class="col-sm-2"><span>{{trip.name}}<img ng-src="{{trip.profPic}}"/></span></div>
               <div class="col-sm-2">{{trip.location}}</div>
