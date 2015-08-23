@@ -3,7 +3,7 @@
     img(ng-src='{{out.pic}}')
     .col-sm-8.col-sm-offset-2.outside-content
       .plan-button
-        a(href='/#/plan')
+        a(href='#/plan')
           button.btn.btn-success.btn-lg.btn-group-justified Plan A Trip
       .panel.panel-default.row.top-panel
         a(data-toggle='collapse' data-target='#tripCollapse')
@@ -12,7 +12,7 @@
           .panel-heading.h3.col-sm-4.panel-title.center-content Date
           .panel-heading.h3.col-sm-4.panel-title.center-content Notes
         #tripCollapse.collapse
-          a(ng-repeat='(who, trip) in out.allTrips' href='/#/trip/{{who}}')
+          a(ng-repeat='(who, trip) in out.allTrips' href='#/trip/{{who}}')
             .row.panel-body(ng-class='{"stand-out": ($index % 2)}')
               .col-sm-2
                 span{{trip.name}}

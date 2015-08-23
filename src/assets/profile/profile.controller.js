@@ -80,7 +80,7 @@ angular
       main.trips = trips;
       for(var id in trips){
         if(main.id===id){
-          main.tripLink = '/#/trip/'+id;
+          main.tripLink = '#/trip/'+id;
         }
       }
     });

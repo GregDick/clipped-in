@@ -1,3 +1,4 @@
+
 .row
   .col-md-5.col-md-offset-2
     .the-trip
@@ -7,12 +8,12 @@
         h4{{out.thisTrip.notes}}
   .col-md-4
     .request
-      a(href='/#/person/{{out.viewID}}')
+      a(href='#/person/{{out.viewID}}')
         img(ng-src='{{out.thisTrip.profPic}}')
 .row
   .col-md-10.col-md-offset-2.members
     h3 Who's going?
-    a(ng-repeat='(index, profile) in out.thisTrip.profiles' href='/#/person/{{profile.simpleLogin}}')
+    a(ng-repeat='(index, profile) in out.thisTrip.profiles' href='#/person/{{profile.simpleLogin}}')
       img.img-circle(ng-src='{{profile.photo}}')
     span.h4(ng-hide='out.thisTrip.members')  No one yet...
 .row
@@ -23,8 +24,8 @@
     .trip-requests(ng-show='out.self' ng-repeat='(id, profile) in out.nameList' ng-class='{"stand-out": ($index % 2)}')
       .row(ng-show='out.requestList')
         .col-md-4.col-md-offset-2
-          a(href='/#/person/{{profile.simpleLogin}}'): img(ng-src='{{profile.photo}}')
-          a(href='/#/person/{{profile.simpleLogin}}'): span.h4 {{profile.name}}
+          a(href='#/person/{{profile.simpleLogin}}'): img(ng-src='{{profile.photo}}')
+          a(href='#/person/{{profile.simpleLogin}}'): span.h4 {{profile.name}}
         .col-md-3
           button.btn.btn-success.accept(ng-click='out.accept(profile.simpleLogin)') Add to trip
         .col-md-3
