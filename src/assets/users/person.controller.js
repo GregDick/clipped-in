@@ -20,7 +20,7 @@ angular
     //gets id of profile that is being viewed
     main.id = $routeParams.id;
 
-    //if this is your own profile redirect to /#/profile
+    //if this is your own profile redirect to #/profile
     if(authData.uid === main.id){
       $location.path('/profile');
     }
@@ -121,7 +121,7 @@ angular
       main.trips = trips;
       for(var id in trips){
         if(main.id===id){
-          main.tripLink = '/#/trip/'+id;
+          main.tripLink = '#/trip/'+id;
         }
       }
     });
