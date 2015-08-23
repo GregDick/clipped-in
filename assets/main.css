@@ -298,12 +298,12 @@ body {
   margin: 20px 0 0 4%; }
 
 .nav a {
-  font-size: 1.75em;
+  font-size: 1.5em;
   color: #009605; }
 
 .nav a:hover {
   color: #469600;
-  font-size: 2em;
+  font-size: 1.75em;
   -webkit-transition: 0.25s;
           transition: 0.25s;
   -webkit-transition-delay: 0.1s;
