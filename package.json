@@ -5,7 +5,7 @@
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "bower install && grunt build && grunt serve"
+    "start": "bower install && grunt build"
   },
   "repository": {
     "type": "git",
