@@ -167,7 +167,8 @@
   z-index: 2;
   overflow-y: auto;
   overflow-x: hidden;
-  color: gray; }
+  color: gray;
+  opacity: 0.75; }
 
 .outside img {
   position: fixed;
