@@ -180,9 +180,7 @@ module.exports = function(grunt) {
     'bower_concat',
     'jade:prod',
     'sass:prod',
-    'autoprefixer',
-    'uglify',
-    'cssmin'
+    'autoprefixer'
   ]);
   grunt.registerTask('build-dev', [
     'clean',
