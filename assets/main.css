@@ -1,7 +1,3 @@
-body {
-  font-size : 14px;
-}
-
 .login-form {
   margin-top: 90px; }
 
@@ -205,6 +201,9 @@ body {
 .panel-body {
   font-size: 1.25em;
   text-align: center; }
+  .panel-body span {
+    margin: 0 auto;
+    display: block; }
 
 .plan-button {
   width: 60%;
@@ -302,12 +301,12 @@ body {
   margin: 20px 0 0 4%; }
 
 .nav a {
-  font-size: 1.5em;
+  font-size: 1.75em;
   color: #009605; }
 
 .nav a:hover {
   color: #469600;
-  font-size: 1.75em;
+  font-size: 2em;
   -webkit-transition: 0.25s;
           transition: 0.25s;
   -webkit-transition-delay: 0.1s;
