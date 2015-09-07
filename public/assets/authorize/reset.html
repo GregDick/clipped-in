@@ -1,0 +1,14 @@
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <p class="text-center">Enter your email address. In a few minutes you will recieve an email with instructions on how to reset your password.</p>
+    <form class="reset">
+      <input type="email" ng-model="auth.reset.email" placeholder="email@domain.com" class="form-control"/>
+      <button ng-click="auth.resetPass()" class="btn btn-danger">Submit</button>
+    </form>
+    <div ng-show="auth.resetSuccess" class="reset-success">
+      <h1>Success! You will recieve an email shortly!</h1>
+      <h2><a href="#/login">Back to login...</a></h2>
+    </div>
+  </div>
+</div>

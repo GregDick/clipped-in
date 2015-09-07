@@ -1,0 +1,56 @@
+
+<div id="modal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button data-dismiss="modal" class="close"><span>&times;</span></button>
+        <h2>Create Your Profile</h2>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label class="control-label">Email*</label>
+            <input type="email" placeholder="email@whatever.com" ng-model="auth.secret.email" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <label class="control-label">Password*</label>
+            <input type="password" placeholder="Password" ng-model="auth.secret.password" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <label class="control-label">Name*</label>
+            <input placeholder="Chris Sharma" ng-model="auth.person.name" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <label class="control-label">Age</label>
+            <input placeholder=" " ng-model="auth.person.age" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <label class="control-label">Where do you live?</label>
+            <input placeholder="City, State" ng-model="auth.person.location" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <label class="control-label">What grade do you usually climb?</label>
+            <input placeholder="If you don't climb yet, just leave this blank" ng-model="auth.person.grade" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <label class="control-label">Can you top-rope belay?</label>
+            <input placeholder="Yes/No" ng-model="auth.person.topRope" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <label class="control-label">Can you lead belay?</label>
+            <input placeholder="Yes/No" ng-model="auth.person.lead" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <label class="control-label">Upload your face!</label>
+            <input placeholder="http://i.imgur.com/catPictures.jpg" ng-model="auth.person.photo" class="form-control"/>
+          </div>
+          <p>*Field Required</p>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button ng-click="auth.register()" class="btn btn-success">Save</button>
+        <button data-dismiss="modal" class="btn btn-danger">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
