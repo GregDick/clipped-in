@@ -113,14 +113,16 @@ angular
           main.disableTopRope = true;
         }
         Profile.getProfile(res[id], function(profileObj){
-          main.topRopeNames.push(profileObj.name);
-          //lists first + number of endorsed
-          if(main.topRopeNames.length > 2){
-            main.topRopePeople = main.topRopeNames[0] + ' and ' + (main.topRopeNames.length - 1) +' other people think ';
-          }else if(main.topRopeNames.length === 2){
-            main.topRopePeople = main.topRopeNames[0] + ' and 1 other person think ';
-          }else{
-            main.topRopePeople = main.topRopeNames[0] + ' thinks ';
+          if(profileObj){
+            main.topRopeNames.push(profileObj.name);
+            //lists first + number of endorsed
+            if(main.topRopeNames.length > 2){
+              main.topRopePeople = main.topRopeNames[0] + ' and ' + (main.topRopeNames.length - 1) +' other people think ';
+            }else if(main.topRopeNames.length === 2){
+              main.topRopePeople = main.topRopeNames[0] + ' and 1 other person think ';
+            }else{
+              main.topRopePeople = main.topRopeNames[0] + ' thinks ';
+            }
           }
         })
       }
@@ -134,15 +136,17 @@ angular
           main.disableLead = true;
         }
         Profile.getProfile(res[id], function(profileObj){
-          main.leadNames.push(profileObj.name);
-          //lists whoever endorsed
-          if(main.leadNames.length > 2){
-            main.leadPeople = main.leadNames[0] + ' and ' + (main.leadNames.length - 1) +' other people think ';
-          }else if(main.leadNames.length === 2){
-            main.leadPeople = main.leadNames[0] + ' and 1 other person think ';
-          }
-          else{
-            main.leadPeople = main.leadNames[0] + ' thinks ';
+          if(profileObj){
+            main.leadNames.push(profileObj.name);
+            //lists whoever endorsed
+            if(main.leadNames.length > 2){
+              main.leadPeople = main.leadNames[0] + ' and ' + (main.leadNames.length - 1) +' other people think ';
+            }else if(main.leadNames.length === 2){
+              main.leadPeople = main.leadNames[0] + ' and 1 other person think ';
+            }
+            else{
+              main.leadPeople = main.leadNames[0] + ' thinks ';
+            }
           }
         })
       }
